@@ -104,21 +104,27 @@
 
         <hr>
 
-        <input type="checkbox" id="ch1"> <label for="ch1"> 약관에 동의합니다.</flabel>
+        <input type="checkbox" id="cb1"> <label for="cb1">약관에 동의합니다.</label>
 
         <hr>
-        <input for="text">이름: <label> <input type="text" id="txt1"></label>
-        
+
         <label>
             <input type="checkbox"> 약관에 동의합니다.
         </label>
+
+        <hr>
+
+        <label for="txt1">이름: </label> <input type="text" id="txt1">
+
+        <hr>
+
 
         <!--  
             라디오 버튼
             - 그룹 지정 ->  name 속성 사용
         -->
-        <input type="radio" name="rb" > 동의 합니다.
-        <input type="radio" name="rb" checked> 동의 안합니다.
+        <input type="radio" name="rb" >동의
+        <input type="radio" name="rb" checked>비동의
 
         <hr>
 
@@ -138,61 +144,6 @@
             radio: 단일 선택
             checkbox: 다중 선택
         -->
-
-        <hr>
-
-        <!--  
-            셀렉트 박스, Combo Box, DropDownList 등..
-            - 단일 선택(radio)  - 기본값
-            - 다중 선택(checkbox) - select multiple
-        -->
-        <select size="10">
-            <option>강아지</option>
-            <option selected>고양이</option>
-            <option>병아리</option>
-        </select>
-
-        <hr>
-
-        <select multiple size="10">
-            <option>강아지</option>
-            <option selected>고양이</option>
-            <option>병아리</option>
-        </select>
-
-        <hr>
-
-        <select>
-            <option>색상을 선택하시요.</option>
-            <option>빨강</option>
-            <option>노랑</option>
-            <option>파랑</option>
-        </select>
-
-        <hr>
-
-        <select>
-            <option disabled selected>색상을 선택하시요.</option>
-            <option>빨강</option>
-            <option>노랑</option>
-            <option>파랑</option>
-        </select>
-
-        <hr>
-
-        <select>
-            <optgroup label="필수 색상">
-                <option>빨강</option>
-                <option>노랑</option>
-                <option>파랑</option>
-            </optgroup>
-            <optgroup label="선택 색상">
-                <option>주황</option>
-                <option>보라</option>
-                <option>초록</option>
-            </optgroup>
-
-        </select>
 
         <hr>
 
@@ -220,7 +171,7 @@
         <hr>
         이미지 버튼: <input type="image" src="images/cat01.jpg">
         <hr>
-        일반 버트: <input type="button" value="일반 버튼" onclick="alert('놀랏냐???');">
+        일반 버튼: <input type="button" value="일반 버튼" onclick="alert('놀랏냐???');">
         <hr>
         일반 버튼: <input type="button" value="일반 버튼" onclick="location.href='http://google.com';">
         <hr>
@@ -234,8 +185,51 @@
         <!-- 버튼에다가 "이미지 + 텍스트" -->
         <button><img src="images/bullet01.png">글쓰기</button>
 
-    </form>
+        <hr>
+        <!--  
+            셀렉트 박스, Combo Box, DropDownList 등..
+            - 단일 선택(radio)  - 기본값
+            - 다중 선택(checkbox) - select multiple
+        -->
+        <select size="10">
+            <option>강아지</option>
+            <option selected>고양이</option>
+            <option>병아리</option>
+        </select>
 
+        <select multiple size="10">
+            <option>강아지</option>
+            <option selected>고양이</option>
+            <option>병아리</option>
+        </select>
+
+        <select>
+            <option>색상을 선택하시요.</option>
+            <option>빨강</option>
+            <option>노랑</option>
+            <option>파랑</option>
+        </select>
+
+        <!-- <select>
+            <option disabled selected>색상을 선택하시요.</option>
+            <option>빨강</option>
+            <option>노랑</option>
+            <option>파랑</option>
+        </select> -->
+
+        <select>
+            <optgroup label="필수 색상">
+                <option>빨강</option>
+                <option>노랑</option>
+                <option>파랑</option>
+            </optgroup>
+            <optgroup label="선택 색상">
+                <option>주황</option>
+                <option>보라</option>
+                <option>초록</option>
+            </optgroup>
+        </select>
+    </form>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
