@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
         .list { 
             border: 1px solid #999;
             /* 인접한 border끼리의 상태 */
@@ -13,7 +14,11 @@
             width: 700px;
         }
 
-        /* 주의사항 ! 여러개의 선택자에서 부모선택자 쓸시, 뒤에것도 부모선택자를 써줘야함 */
+        /* 
+            selector 주의사항 ! 
+            - 여러개의 선택자에서 부모선택자 사용 시, 뒤에것도 부모선택자를 써줘야함 
+        */
+
         .list th, .list td {
             border: 1px solid #999;
             padding: 5px;
@@ -41,21 +46,6 @@
             background-color: gold;
         }
 
-        .menu {
-            border: 1px solid black;
-            width: 100%;
-        }
-
-        .msnu td {
-            border: 0px solid red;
-            width: 20%;
-            height: 60px;
-            text-align: center;
-            font-family: 'Arial';
-            font-size: 1.5em;
-            background-color: #5e546B;
-            
-        }
     </style>
 </head>
 <body>

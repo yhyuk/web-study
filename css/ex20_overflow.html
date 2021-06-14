@@ -10,15 +10,17 @@
         body {
             margin-bottom: 200px;
         }
-
+        /*  
+            [ overflow 속성]
+            - visible: 기본값
+            - hidden: overflow된 값을 가려준다.
+            - scroll: overflow된 값을 스크롤 할 수 있게 해준다.
+        */
         #box1 {
             border: 1px solid black;
             width: 200px;
             height: 200px;
-            /* overflow: visible; */ /* 기본값 */
-            overflow: hidden; /* 넘친 값을 가려준다 */
-            /* overflow: scroll; */ /* 넘친 값을 스크롤 할 수 있게 해준다. */
-            /* overflow: auto; */
+            overflow: hidden; 
         }
 
         #box2 {
@@ -30,14 +32,12 @@
         }
 
         /*
-
             각각의 이미지 파일을 만들지 않고, 커다란 덩어리 이미지로 만드는 이유?
             1. 디자이너 <-> 개발자 협업이 쉽다.
                 a. 이미지 100개 주고 받기? > 파일명 고민 스트레스
                 b. 이미지 1개 주고 받기! > 파일명 고민 ㄴㄴ
                     - 개별 파트의 크기 + 위치 > 디자이너가 개발자에게 알려준다.
-            2. 네트워크 트래픽 감소 + 서버 운용 비용 감소
-
+            2. 네트워크 트래픽 감소 + 서버 운용 비용 감소( 선생님이 그려준 그림 참조 )
         */
         #naver {
             border: 0px solid black;
@@ -91,5 +91,6 @@
     <hr>
 
     <div id="naver2"></div>
+    
 </body>
 </html>

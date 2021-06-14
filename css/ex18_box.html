@@ -6,24 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+        /* '*': 모든 선택자 */
         * {
             padding: 0;
             margin: 0;
         }
 
         body {
-            background-color: #e4dda4;
-            /* cursor: wait; */
+            background-color: #f3f0d7;
+        }
+
+        .menu {
+            border: 0px solid black;
+            width: 100%;
+            border-spacing: 0;
         }
 
         .menu td {
             border: 0px solid red;
-            width: 500px;
+            width: 20%;
             height: 60px;
             text-align: center;
             font-family: 'Arial';
             font-size: 1.5em;
-            background-color: #7e56b1;
+            background-color: #5e454b;
             color: white;
             font-variant: small-caps;
             cursor: pointer;
@@ -32,7 +39,7 @@
         }
 
         .menu td:hover {
-            background-color: #D8B384;
+            background-color: #d8b384;
             border-top-color: red;
             border-bottom-color: red;
         }
@@ -44,7 +51,7 @@
 
         section {
             padding: 25px;
-            margin-bottom: 200px;
+            margin-bottom: 100px;
         }
 
         section > article > h1 {
@@ -58,7 +65,7 @@
         }
 
         section > article {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
     </style>
@@ -68,8 +75,9 @@
 
     <!--  
 
-        페이지 상단 메뉴 + 컨텐츠
-        *프로토타이핑: 적당히 테스트해보는 샘플 느낌
+        [ 페이지 상단 메뉴 + 컨텐츠 만들기 ]
+        
+        * 프로토타이핑: 적당히 테스트해보는 샘플 느낌
         1. 화면 스케치(프로토 타이핑, 목업, 와이어 프레임)
             - Adobe XD
             - Figma
@@ -123,5 +131,6 @@
             </article>
         </section>
     </main>
+    
 </body>
 </html>

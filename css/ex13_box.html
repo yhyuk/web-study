@@ -18,16 +18,20 @@
             /* border: 3px dashed darkviolet; */
 
             /* 표기법 2, 케밥 표기법(HTML,CSS에서 많이쓰임) */
-            /* border-color: blue; */
-            /* border-style: solid; */ /* solid, dashed, dotted */
-            /* border-width: 2px; */
+            /*
+            border-color: blue; 
+            border-style: solid; 
+            border-width: 2px; 
+            */
+            /* border-style은 solid, dashed, dotted 이 3가지가 가장 많이 쓰인다. */
+
 
             /* 방향 지정 */
             /* 
-            border-top: 1px dashed black;
-            border-right: 25px solid red;
-            border-bottom: 15px double skyblue;
-            border-left: 5px dotted slateblue; 
+            border-top: 1px dashed red;
+            border-right: 5px solid yellow;
+            border-bottom: 10px dotted yellowgreen;
+            border-left: 15px solid blue; 
             */
 
             /*
@@ -35,28 +39,22 @@
             border-top-style: solid;
             border-top-width: 1px;
 
-            border-top-color: blue;
-            border-top-style: dashed;
-            border-top-width: 5px;
-            
-            border-top-color: green;
-            border-top-style: dotted;
-            border-top-width: 10px;
+            border-right-color: blue;
+            border-right-style: dashed;
+            border-right-width: 5px;
 
-            border-top-color: yellow;
-            border-top-style: solid;
-            border-top-width: 15px;
+            border-bottom-color: yellow;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
 
-            border-top-color: skyblue;
-            border-top-style: solid;
-            border-top-width: 12px;
+            border-left-color: orange;
+            border-left-style: dashed;
+            border-left-width: 5px; 
             */
-
-
         }
 
         h1 {
-            border-bottom: 1px solid black;
+            border-bottom: 1px dashed black;
         }
 
         /* 
@@ -96,9 +94,9 @@
         박스 모델, Box Model
         - HTML의 모든 태그는 화면에 출력될 때 직사각형 형태로 출력된다. 
             -> 이 규칙을 기반으로 적용되는 CSS의  속성(+ 규칙)들을 박스 모델이라고 한다.
-        1) 테두리 (border)
-        2) 너비, 높이 (width, height)
-        3) 여백 (padding, margin)
+        1) 테두리 ( border )
+        2) 너비, 높이 ( width, height )
+        3) 여백 ( padding, margin )
 
     -->
 
@@ -112,11 +110,6 @@
     <div id="box1" class="box">상자1</div>
     <div id="box2" class="box">상자2</div>
     <div id="box3" class="box">상자3</div>
-
-
-
-
-
 
 </body>
 </html>
