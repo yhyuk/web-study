@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list { 
+            border: 1px solid #999;
+            /* 인접한 border끼리의 상태 */
+            border-collapse: collapse;
+            width: 700px;
+        }
+
+        /* 주의사항 ! 여러개의 선택자에서 부모선택자 쓸시, 뒤에것도 부모선택자를 써줘야함 */
+        .list th, .list td {
+            border: 1px solid #999;
+            padding: 5px;
+        }
+
+        .list td { 
+            text-align: center;
+        }
+
+        .list .col1 { width: 50px; }
+        .list .col2 { width: 80px; }
+        .list .col3 { width: 50px; }
+        .list .col4 { width: 70px; }
+        .list .col5 { width: 450px; }
+
+        .list th {
+            background-color: palegreen;
+        }
+
+        .list .cel5 {
+            text-align: left;
+        }
+
+        .list tr:hover {
+            background-color: gold;
+        }
+
+        .menu {
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .msnu td {
+            border: 0px solid red;
+            width: 20%;
+            height: 60px;
+            text-align: center;
+            font-family: 'Arial';
+            font-size: 1.5em;
+            background-color: #5e546B;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- ex17_box.html -->
+
+    <!--  
+        HTML: 뼈대+ 데이터
+        CSS: 서식
+    -->
+    <h1>주소록</h1>
+
+    <table class="list">
+        <tr>
+            <th class="col1">번호</th>
+            <th class="col2">이름</th>
+            <th class="col3">나이</th>
+            <th class="col4">성별</th>
+            <th class="col5">주소</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남자</td>
+            <td class="cel5">서울시 강남구 역삼동 123-45</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>아무개</td>
+            <td>22</td>
+            <td>남자</td>
+            <td class="cel5">인천광역시 남동구 구월동 22-2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>호호호</td>
+            <td>27</td>
+            <td>남자</td>
+            <td class="cel5">인천광역시 남동구 논현동 14-44</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>이야호</td>
+            <td>27</td>
+            <td>남자</td>
+            <td class="cel5">서울시 강남구 논현동 123-45</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>무야호</td>
+            <td>32</td>
+            <td>여자</td>
+            <td class="cel5">인천광역시 부평구 부평동 22-2</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>호하후</td>
+            <td>21</td>
+            <td>남자</td>
+            <td class="cel5">인천광역시 남동구 만수동 143-44</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>20</td>
+            <td>남자</td>
+            <td class="cel5">서울시 강남구 역삼동 123-45</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>아무개</td>
+            <td>22</td>
+            <td>남자</td>
+            <td class="cel5">인천광역시 남동구 구월동 22-2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>호호호</td>
+            <td>27</td>
+            <td>남자</td>
+            <td class="cel5">인천광역시 남동구 논현동 14-44</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>이야호</td>
+            <td>27</td>
+            <td>남자</td>
+            <td class="cel5">서울시 강남구 논현동 123-45</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>무야호</td>
+            <td>32</td>
+            <td>여자</td>
+            <td class="cel5">인천광역시 부평구 부평동 22-2</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>호하후</td>
+            <td>21</td>
+            <td>남자</td>
+            <td class="cel5">인천광역시 남동구 만수동 143-44</td>
+        </tr>
+    </table>
+
+    <h2>비고</h2>
+
+    <table>
+        <tr>
+            <td>비고: 위의 데이터는 연습용입니다.</td>
+        </tr>
+    </table>
+
+</body>
+</html>
