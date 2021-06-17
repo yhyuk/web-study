@@ -1,124 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <link rel="stylesheet" href="css/example.css">
-   <style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/example.css">
+    <style>
 
-      #box1 {
-         width: 600px;
+        #box1 {
+            width: 600px;
 
-         /*  
-            background
-            1. solid color, 단색
-            2. gradient color, 색의 변화(*)를 시각적으로 표현
-               a. 선형
-               b. 원형
-         */
-         /* background: linear-gradient(red, blue); */
-         /* background: linear-gradient(yellow, red); */
-         /* background: linear-gradient(black, white); */
-         /* background: linear-gradient(to right, red, blue); */
-         /* background: linear-gradient(to left, red, blue); */
-         /* background: linear-gradient(to bottom, red, blue); */
-         /* background: linear-gradient(to top, red, blue); */
-         /* background: linear-gradient(45deg, red, blue); */
+            /*  
+                background
+                1. solid color, 단색
+                2. gradient color, 색의 변화(*)를 시각적으로 표현
+                    a. 선형
+                    b. 원형
+            */
+            /* background: linear-gradient(red, blue); */
+            /* background: linear-gradient(yellow, red); */
+            /* background: linear-gradient(black, white); */
+            /* background: linear-gradient(to right, red, blue); */
+            /* background: linear-gradient(to left, red, blue); */
+            /* background: linear-gradient(to bottom, red, blue); 기본값*/ 
+            /* background: linear-gradient(to top, red, blue); */
+            /* background: linear-gradient(45deg, red, blue); */
 
-         /* background: linear-gradient(to right, red, orange, yellow, green, blue, darkblue, purple); */
-         
-         /* background: linear-gradient(to right, red, yellow, yellow, yellow, yellow, yellow, blue, blue, blue); */
-
-         /* background: linear-gradient(to right, rgb(255, 0, 0), rgba(255, 0, 0, 0)); */
-
-
-         /* background: radial-gradient(red, blue, yellow); */
-         
-         /* background: radial-gradient(circle, red, blue, yellow); */
+            /* background: linear-gradient(to right, red, orange, yellow, green, blue, darkblue, purple); */
+            /* background: linear-gradient(red, red, red, yellow, blue, blue, blue, blue); */
+            /* background: linear-gradient(to right, rgb(255, 0, 0), rgba(255, 0, 0, 0)); */
+            /* background: radial-gradient(red, blue, yellow); */
+            /* background: radial-gradient(circle, red, blue, yellow); */
 
 
+            /*
+                background-image
+                - 다중 배경 이미지
+            */
+            background-image: url(images/cat01.jpg), url(images/cat02.jpg), url(images/cat03.jpg);
+
+            background-repeat: no-repeat;/* , repeat-x, repeat-y; */
+            background-position: left top, right top, left bottom; 
+
+        }
+
+        /*
+        #box1:hover {
+            background: linear-gradient(white, black); 
+        }
+        */
 
 
-         /*  
-            background-image
-            - 다중 배경 이미지
-         */
-         /* background-image: url(images/catty01.png), url(images/catty02.png), url(images/catty03.png);
-         background-repeat: no-repeat, repeat-x, repeat-y;
-         background-position: left top, right top, left bottom; */
+        #box2 {
+            width: 600px;
+            /*
+                배경 이미지 크기
+            */
+            background-image: url(images/wall21.jpg);
+            /* 이미지 크기가 큰데 box2의 크기가 작아서 짤렷다. -> size조절 */
+            /* background-size: 600px 400px; */
+            /* background-size: 60px 40px; */
+            /* background-size: 600px 200px; */
+            /* background-size: 100% 100%; */ /* 컨테이너를 기준으로 100% */
+            /* background-size: auto auto; */ /* 배경 이미지를 기준으로 auto(기본값) */
 
-         /*  
-            배경 이미지 크기
-         */
-         background-image: url(images/wall21.jpg);
-         /* background-size: 600px 400px; */
-         /* background-size: 300px 200px; */
-         /* background-size: 60px 40px; */
-         /* background-size: 600px 200px; */
-         /* background-size: 300px 400px; */
-         /* background-size: 100% 100%; */ /* 컨테이너를 기준 */
-         /* background-size: auto auto; */ /* 배경이미지를 기준 */
+            /* 종횡비를 안깨고 box2에 이미지를 넣는 방법!! */
+            /* case1. 너비는 상자를 채우고.. 높이는 종횡비 유지 계산 */
+            /* 
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: center center;  
+            */
+            
+            /* case1 방법을 contain 키워드를 통해서도 사용할 수 있다. */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            
+            /* case2. 여백없이 중앙에 맞추기*/
+            /* 
+            background-size: auto 100%;
+            background-position: center center; 
+            */
 
-         /* 너비는 상자를 채우고..높이는 종횡비유지계산 */
-         /* case 1.
-         background-size: 100% auto; 
-         background-repeat: no-repeat;
-         background-position: center center; 
-         */
-         /* 
-         background-size: contain;
-         background-repeat: no-repeat;
-         background-position: center center;  
-         */
+            /* case1 방법을 cover 키워드를 통해서도 사용할 수 있다. */
+            background-size: cover;
+            background-position: center center;
+        }
 
-         /* case 2.
-         background-size: auto 100%; 
-         background-position: center center; 
-         */
+        /* 풀 사이즈 배경 이미지 */
+        html {
+            height: 100%;
+            background-image: url(images/myDog.jpg);
+            background-repeat: no-repeat;
+            /* background-size: 100% 100%; */
 
-         /* background-size: cover;
-         background-position: center center;  */
+            background-position: center center;
+            background-color: black;
 
-      }
+            /* 
+                contain: 종횡비는 유지하지만, 공백이 생긴다
+                cover: 종횡비는 유지되지 않지만, 꽉찬 화면으로 볼 수 있다! 
+            */
+            /* background-size: contain; */
+            background-size: cover;
+        }
 
-      /* 
-      #box1:hover {
-         background: linear-gradient(white, black);
-      } 
-      */
-
-
-      /* 풀 사이즈 배경 이미지 */
-
-      html {
-         height: 100%;
-         background-image: url(images/back.jpg);
-         background-repeat: no-repeat;
-         /* background-size: 100% 100%; */
-         background-position: center center;
-         background-color: black;
-         /* background-size: contain; */
-         background-size: cover;
-      }
-
-   </style>
+    </style>
 </head>
 <body>
-   <!-- ex47_background.html -->
-   <!-- <div id="box1" class="box box-large box-border5"></div> -->
+    
+    <!-- ex47_background.html -->
+    <!-- 이미지 색 조절 -->
+    <!-- <div id="box1" class="box box-large box-border5"></div> -->
 
-   <!-- <img src="images/wall21.jpg" style="width: 600px;"> -->
+    <br><br><br>
+    <!-- 배경 이미지 크기 조절 -->
+    <!-- <div id="box2" class="box box-large box-border5"></div> -->
+
+    <!-- <img src="images/wall21.jpg" style="width: 600px;"> -->
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
