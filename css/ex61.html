@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid black;
+            width: 1400px;
+            height: 500px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+
+        #box .line {
+            height: 100px;
+            border-bottom: 1px solid black;
+        }
+
+        #box .line:last-child {
+            border-bottom: 0px;
+        }
+
+        #box .ball {
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: bold;
+            transition: all 5s;
+        }
+
+        #box .ball:nth-child(1) {
+            background-color: tomato;
+            left: 0px;
+            top: 50px;
+            transition-timing-function: linear;
+        }
+        #box .ball:nth-child(2) {
+            background-color:cornflowerblue;
+            left: 0px;
+            top: 150px;
+            transition-timing-function: ease-in;
+        }
+        #box .ball:nth-child(3) {
+            background-color: coral;
+            left: 0px;
+            top: 250px;
+            transition-duration: 3s;
+        }
+        #box .ball:nth-child(4) {
+            background-color: palevioletred;
+            left: 0px;
+            top: 350px;
+            transition-duration: 10s;
+        }
+        #box .ball:nth-child(5) {
+            background-color: blueviolet;
+            left: 0px;
+            top: 450px;
+            transition-timing-function: ease-out;
+        }
+
+        #box:hover > .ball {
+            left: 1350px;
+            transform: rotate(4000deg);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>:hover + position(absolute) + transform(rotate) + transition</h1>
+    <div style="font-size: 20px;">어떤 공이 더빠를까!!?</div>
+    
+    <div id="box">
+        <div class="ball">A</div>
+        <div class="ball">B</div>
+        <div class="ball">C</div>
+        <div class="ball">D</div>
+        <div class="ball">E</div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</body>
+</html>

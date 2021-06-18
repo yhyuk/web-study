@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #list {
+            border: 1px solid black;
+            width: 1400px;
+            height: 650px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 15px 0px;
+            transition: width 5s;
+        }
+
+        #box1 { background-color: red; transition-timing-function: linear; }
+        #box2 { background-color:  blue; transition-timing-function: ease; }
+        #box3 { background-color:  coral; transition-timing-function: ease-in; }
+        #box4 { background-color:  mediumaquamarine; transition-timing-function: ease-out; }
+        #box5 { background-color:  greenyellow; transition-timing-function: ease-in-out; }
+
+        #list:hover .box {
+            width: 1400px;
+        }
+        /*  
+            linear      : 일정한 속도로 in, out
+            ease        : 기본값 (스프링같은 느낌)
+            ease-in     : 처음에 느림, 점점 빨라짐
+            ease-out    : 처음에 빠름, 점점 느려짐
+        */
+    </style>
+</head>
+<body>
+
+    <!-- ex54_transition.html -->
+    <div id="list">
+        <div id="box1" class="box">linear</div>
+        <div id="box2" class="box">ease</div>
+        <div id="box3" class="box">ease-in</div>
+        <div id="box4" class="box">ease-out</div>
+        <div id="box5" class="box">ease-in-out</div>
+    </div>
+
+</body>
+</html>

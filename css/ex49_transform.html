@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 너비: 1000px, 가운데 정렬 */
+        
+        /*  
+            인접한 인라인 태그 사이의 공백을 없애는 방법
+            1. 직접 공백을 지운다. > 비권장 (코드 띄어쓰기 제거 (가독성 떨어짐))
+            2. float > 추가 비용 발생 ( clear: both; 해야함)
+            3. font-size: 0;
+        */
+        #menu {
+            width: 630px;
+            margin: 0 auto;
+            /* font-size: 0; */
+            /* border: 1px solid black; */
+            /* text-align: center; */
+            transform: translate(0px, -100px);
+        }
+
+        /* #menu:hover {
+            transform: translate(0px, -10px);
+        } */
+
+        #menu > img:hover {
+            transform: translate(0px, 90px);
+        }
+
+        #menu > img {
+            float:left;
+        }
+
+        /* float으로 올라온 문장 아래로 내리기 거의 공식임 */
+        #menu::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        section {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        #submenu {
+            /* border: 1px solid black; */
+            width: 126px;
+            font-size: 0;
+            transform: translate(-110px, 0px);
+        }
+
+        #submenu > img:hover {
+            transform: translate(110px, 0px);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex49_transform.html -->
+
+    <nav id="menu">
+        <img src="images/rect_icon01.png" alt="">
+        <img src="images/rect_icon02.png" alt="">
+        <img src="images/rect_icon03.png" alt="">
+        <img src="images/rect_icon04.png" alt="">
+        <img src="images/rect_icon05.png" alt="">
+    </nav>
+
+    <nav id="submenu">
+        <img src="images/rect_icon01.png" alt="">
+        <img src="images/rect_icon02.png" alt="">
+        <img src="images/rect_icon03.png" alt="">
+        <img src="images/rect_icon04.png" alt="">
+        <img src="images/rect_icon05.png" alt="">
+    </nav>
+
+    <section>
+        <h1>Transform Menu</h1>
+
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quasi, dolorum autem maxime possimus modi ipsam atque, ullam mollitia natus eaque numquam magnam praesentium voluptates incidunt nobis dolores, dolorem sapiente.</p>
+        <p>Numquam recusandae, ut natus magnam ratione, cum saepe dolor rem labore, nulla omnis quas optio repudiandae dolorem est. Vero nihil ratione laudantium repellat voluptas, officia tenetur magni saepe quisquam ab!</p>
+        <p>Tempora minima vitae error. Possimus, hic excepturi illum enim, dolores, consectetur autem explicabo eos quibusdam nisi cum nesciunt vero ad numquam id molestias. Fugit error dolor nulla, quibusdam expedita a.</p>
+        <h2>Tempore odit consequatur impedit maxime!</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita illum explicabo tenetur nisi enim sunt itaque ipsam quisquam asperiores dolor? Tenetur adipisci reprehenderit natus nisi! Quaerat vitae doloremque deleniti rerum!</p>
+        <p>Itaque vel quas pariatur rerum dignissimos unde magni, tenetur harum nemo sunt quidem soluta iusto delectus aliquid commodi voluptas accusantium quis ad accusamus odit autem, enim nulla maiores! Id, velit!</p>
+        <p>Ipsam accusamus voluptatum excepturi quasi aperiam, error earum nobis, fuga doloremque quisquam alias veritatis modi. Neque molestias vitae amet deleniti ea numquam nostrum vel, laborum illum maxime, praesentium quibusdam? Voluptatem!</p>
+        <h2>Natus velit iure ipsum modi.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi doloribus illum consectetur pariatur ipsa, soluta porro placeat quis suscipit impedit dolor, unde sint voluptatum consequuntur rem nemo blanditiis nam maiores.</p>
+        <p>Repellendus dolorem atque, quas rerum labore porro tempore aliquam deserunt, incidunt vel aliquid iure quibusdam accusamus nam possimus maiores officiis laudantium. Animi quam sint iste perspiciatis accusamus deserunt distinctio consequuntur!</p>
+        <p>Ipsum, quisquam explicabo! Pariatur quia reiciendis eos, esse optio fugiat laudantium perferendis unde molestias? Id architecto harum totam dolorem mollitia inventore est, aliquam accusamus deserunt? Iure facere ab totam perferendis?</p>
+        <h2>Quis officiis aliquam facilis quam.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illum accusantium repellendus omnis vel totam rem sunt dolorem maxime, quaerat at expedita beatae velit! Veniam dignissimos culpa consequuntur est sed?</p>
+        <p>Cumque deserunt dicta tempore illo, expedita molestiae vel consectetur facere nam? Esse quisquam ipsam cumque magnam voluptatem. Vero nostrum eligendi facere, magnam, distinctio incidunt tenetur quidem dignissimos accusamus, quasi sequi.</p>
+        <p>Pariatur quia illo, qui ut maiores consectetur omnis ab asperiores tenetur ipsam? Praesentium ad hic est aut modi repudiandae, laudantium odit. At necessitatibus mollitia odio optio laborum sequi id totam.</p>
+        <h2>Temporibus dicta soluta excepturi unde.</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga in, dolor molestias illum officia sit voluptatum, dolores veritatis recusandae unde nostrum eligendi sapiente? Facere at pariatur corrupti beatae, eius iste!</p>
+        <p>Ea reiciendis quam porro dolorem adipisci alias nesciunt totam incidunt laboriosam, hic mollitia nostrum pariatur sapiente, magni ab accusantium quos eaque recusandae perspiciatis vero? Doloremque enim obcaecati eos ex atque!</p>
+        <p>Fuga sed, dolorum dicta voluptatibus a similique alias animi repellat recusandae vitae commodi voluptas neque consequuntur dolorem deserunt nulla repudiandae atque laborum ipsam esse eum impedit assumenda quam iste. Libero.</p>
+    </section>
+</body>
+</html>

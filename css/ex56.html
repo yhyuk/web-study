@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid black;
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        #innerbox {
+            width: 500px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: all 3s;
+            transition-timing-function: linear;
+        }
+
+        #box:hover > #innerbox {
+            transform: translate(0px, -1000px);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;"> Transition 마우스를 올려보십쇼! </h1>
+    <!-- ex56.html -->
+    <div id="box">
+        <div id="innerbox">
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quos itaque quae quam vero dolorum, quaerat eaque sit. Hic officia culpa, deleniti saepe facere aliquid at laboriosam eius quia voluptatem?</div>
+            <h2>Incidunt natus itaque labore ipsum?</h2>
+            <div>Optio architecto iusto asperiores omnis temporibus quaerat, quas a inventore sint laboriosam debitis quam, adipisci provident dicta, sunt cumque? Itaque aliquid, corrupti aperiam voluptatum porro esse repudiandae cumque provident blanditiis.</div>
+            <h2>Blanditiis nam rem obcaecati numquam!</h2>
+            <div>Enim quas, minus dolores consequuntur recusandae nam fuga. Hic expedita perferendis dignissimos iure soluta nesciunt, incidunt et quaerat animi repudiandae, suscipit alias corporis architecto quam sequi ut consectetur! Sed, adipisci.</div>
+            <h2>Aspernatur laborum perferendis beatae repellat.</h2>
+            <div>Maiores, atque dignissimos. Enim consectetur sit aliquid nihil facilis inventore sequi rerum expedita sint laborum, quos omnis, nemo, dolor provident magni? Quia officiis explicabo voluptatibus veniam maiores corporis accusamus sit.</div>
+            <h2>Recusandae in est sunt iste.</h2>
+            <div>Laborum nihil, rem voluptas non voluptatibus officia eum deleniti maiores, nemo id ratione dolorem exercitationem temporibus est incidunt sit odio nulla. Fugiat dicta facere enim reprehenderit modi ab reiciendis perferendis.</div>
+            <h2>Quasi magni cupiditate in suscipit.</h2>
+            <div>Quibusdam veniam quasi accusamus deleniti ipsam distinctio labore soluta, illum neque iste quo quod omnis dolore tempora, totam enim itaque maiores sed? Sit mollitia obcaecati in vero, modi alias nulla.</div>
+            <h2>Enim voluptate beatae dicta dolorem.</h2>
+            <div>Vel dolorum mollitia doloremque voluptatibus minus ullam corrupti praesentium assumenda, eum eos consectetur dolore deleniti doloribus esse repudiandae? Odio nobis iure, numquam doloribus dolor voluptate veritatis ipsam corporis illum aut.</div>
+            <h2>Ratione expedita omnis vitae autem.</h2>
+            <div>Eos explicabo provident numquam eaque accusamus unde. Culpa ab mollitia dignissimos minima cum repudiandae ex, deserunt aspernatur! Magni maiores accusantium animi et minima, totam placeat temporibus officia, labore, blanditiis enim?</div>
+            <h2>Sed recusandae in possimus incidunt!</h2>
+            <div>Nemo laborum illum velit saepe explicabo dolorem repellat odit quia natus aut, nulla vitae omnis repudiandae assumenda est reiciendis, labore quam? Fuga, aperiam tempora ex illum odit numquam totam quibusdam.</div>
+            <h2>Nostrum alias animi cumque. Quasi!</h2>
+            <div>Temporibus ratione cupiditate eum enim? Natus quia quis soluta, earum, a, atque adipisci minus consectetur molestias recusandae consequatur voluptatibus! Quam vel cumque sunt dignissimos exercitationem perspiciatis porro labore, quae deleniti.</div>
+        </div>
+    </div>
+
+
+</body>
+</html>
