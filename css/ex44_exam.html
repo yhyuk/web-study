@@ -11,6 +11,7 @@
 			width: 100%;
 			height: 500px;
 			margin-top: 100px;
+			display: none;
 		}
 
 		#main {
@@ -34,26 +35,25 @@
 			cursor: pointer;
 		}
 
+		#main input[type=radio]:checked+label {
+			background-color: cadetblue;
+			color: darkred;
+			font-weight: bold;
+		}
+
+		#main div {
+			display: none;
+			padding: 80px 20px 20px 20px;
+		}
+
 		#main img {
 			float: left;
 		}
 
-        #main #info2, 
-        #main #info3,
-        #main #info4 {
-            display: none;
-        }
-
-        #main input[type=radio]:checked + label {
-            background-color: peachpuff;
-        }
-
-        #main input[type=radio]:checked + label + div #info2 {
-            display: block;
-        }
-
-
-
+		#main #rb1:checked ~ #info1,
+        #main #rb2:checked ~ #info2, 
+        #main #rb3:checked ~ #info3,
+        #main #rb4:checked ~ #info4 { display: block; }
 			
 	</style>
 </head>
