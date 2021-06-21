@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*  
+            Flex 
+            - Flexible Box, FlexBox
+            - 레이아웃 만들 때 내부 요소의 배치를 지정하는 상자
+            - float + position + margin
+        */
+        
+        #box {
+            border: 10px solid black;
+
+            /*  
+                display: flex;          -> 컨테이너가 블럭 태그
+                display: inline-flex;   -> 컨테이너가 인라인 태그
+
+                보편적으론 flex 이용
+            */
+
+            display: flex;
+
+            /*
+                [ 머릿속에 용어 의미 넣어두기 ]
+                [ 축, Axis ]
+                - 기본축, Main Axis
+                - 수직축, 교차축, Ccross Axis
+            */
+            /* *********************************************************************** */
+
+            /*
+                [ flex-direction ]
+                - 아이템의 배치 방향
+                - 기본축 or 수직축
+
+                row: 메인축
+                column: 수직축
+                row-reverse:
+                column-reverse:
+            */
+
+            /* flex-direction: row; */
+            /* flex-direction: column; */
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column-reverse; */
+
+            /*
+                [ flex-wrap ]
+                - 자동 줄바꿈
+
+                nowrap: 기본값
+                wrap: 자동 개행 (float:left와 비슷함)
+                wrap-reverse: 자동 개행이 위로 올라간다.
+            */
+
+            /* flex-wrap: nowrap;  */
+            /* flex-wrap: wrap; */
+            /* flex-wrap: wrap-reverse; */
+
+            /*  
+                [ flex-flow ]
+                - 축약 속성, 그룹 속성
+                - flex-direction + flex-wrap
+            */
+            /* flex-flow: row wrap; */
+            /* *********************************************************************** */
+            /*  
+                [ 머릿속에 용어 의미 넣어두기 ]
+                - justify: 메인 축 방향
+                - align: 수칙 축 방향
+            */
+
+            /*
+                [ justify-content ]
+                - 메인 축 방향으로 아이템을 어떻게 정렬?
+
+                start           왼쪽정렬(default)
+                flex-end        왼쪽정렬
+                center          중앙 정렬
+                space-between   일정한 간격을 두고 정렬됨
+                space-around    컨테이너 양쪽끝은 1칸기준 정렬, 중앙은 2칸기준 정렬
+                space-evenly    모든 컨테이너가 동일한 간격을 두고 정렬
+            */
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */ /* 자주 씀 */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+
+            /* 축이 메인 축이 아닌, column으로 수직 축으로 바뀔 경우 주의 할 것!! */
+            /* 
+            flex-direction: column;
+            height: 600px;
+            justify-content: space-evenly; 
+            */
+
+            /*  
+                flexbox는 기본적으로 모든 내부 요소의 높이가 상자의 높이와 동일하다.
+
+                [ align-items ]
+                - 수직 축 방향으로 아이템을 어떻게 정렬?
+                stretch         왼쪽 정렬(default)
+                flex-start      위쪽 정렬
+                flex-end        아래 정렬
+                center          중앙
+                beseline        dd?
+            */
+            height: 600px;
+
+            /* align-items: stretch; */
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            /* align-items: center; */
+            /* align-items: baseline; */
+        }
+
+        #box .item:nth-child(2) {
+            font-size: 5em;
+        }
+
+        /*
+        #box::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #box .item {
+            float:left;
+        }
+        */
+
+        #box .item:nth-child(3n) { border: 10px solid tomato; }
+        #box .item:nth-child(3n+1) { border: 10px solid gold; }
+        #box .item:nth-child(3n+2) { border: 10px solid cornflowerblue; }
+
+
+        /* [ 메인축 예제 ] */
+        #title1, #title2 {
+            width: 600px;
+            font-variant: small-caps;
+            color: #333;
+            border-bottom: 1px dashed #999;
+        }
+
+        #title1 small, #title2 small {
+            color: #777;
+            font-size: .6em;
+        }
+
+        /* 방법1 margin-top 수정해 가면서 수정해야하는 번거로움 ... */
+        #title1 small {
+            float: right;
+            margin-top: 10px;
+        }
+
+        /* 방법2 알아서 바닥에 정렬 해준다. */
+        #title2 {
+            display: flex;
+            justify-content: space-between; 
+            align-items: flex-end;
+        }
+
+
+        
+        /* [ 수직정렬 예제 ] */
+        #box2, #box3 { border: 10px solid black; }
+
+        /* 방법 1 */
+        #box2 {
+            width: 320px;
+            height: 170px;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 방법 2 */
+        /* 수직정렬 하려고 할 떄 마진으로 하려면 계산해야 되고 너무 귀찮음 */
+        #box3 {
+            width: 20px;
+            height: 30px;
+            background-color: greenyellow;
+            /* margin: 55px 135px; */
+        }
+
+        body {
+            margin-bottom: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex66_flex.html -->
+
+    <div id="box">
+        <div class="item">1.딸기</div>
+        <div class="item">2.바나나</div>
+        <div class="item">3.포도</div>
+        <!-- <div class="item">1.딸기</div>
+        <div class="item">2.바나나</div>
+        <div class="item">3.포도</div>
+        <div class="item">1.딸기</div>
+        <div class="item">2.바나나</div>
+        <div class="item">3.포도</div>
+        <div class="item">1.딸기</div>
+        <div class="item">2.바나나</div>
+        <div class="item">3.포도</div>
+        <div class="item">1.딸기</div>
+        <div class="item">2.바나나</div>
+        <div class="item">10.파인애플</div> -->
+    </div>
+
+    <h1 id="title1">Main Title<small>Sum Title</small></h1>
+    <h1 id="title2">Main Title<small>Sum Title</small></h1>
+
+    <div id="box2">
+        <div id="box3"></div>
+    </div>
+
+
+
+</body>
+</html>

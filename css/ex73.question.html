@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { background-color: #8FD1D8; }
+
+        h1 { 
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #main {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        #tape {
+            width: 570px;
+            height: 355px;
+            background-image: url("images/tape.png");
+            background-position: 570px 360px;
+            position: relative;
+            left: 30px;
+            top: 0px;
+        }
+
+        #lefthole {
+            width: 80px;
+            height: 80px;
+            background-image: url("images/tapehole.png");
+            position: absolute;
+            left: 125px;
+            top: 120px;
+        }
+
+        #righthole {
+            width: 80px;
+            height: 80px;
+            background-image: url("images/tapehole.png");
+            position: absolute;
+            left: 365px;
+            top: 120px;
+        }
+
+        #lefthole,
+        #righthole {
+            animation-name: holeKey;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes holeKey {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        #line {
+            width: 133px;
+            height: 70px;
+            background-image: url("images/tapeline.png");
+            background-position: -50px 0px;
+            position: absolute;
+            left: 219px;
+            top: 125px;
+
+            animation-name: lineKey;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+        }
+
+        @keyframes lineKey {
+            from { background-position: -60px 0px; }
+            to { background-position: 20px 0px;}
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1><i class="fas fa-headphones-alt"></i>♬ Music ♬ </h1>
+        <div id="tape">
+            <div id="lefthole"></div>
+            <div id="righthole"></div>
+            <div id="line"></div>
+        </div>
+    </div>		
+</body>
+</html>
