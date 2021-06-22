@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap 직접 설치(로컬) -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script> 
+    
+
+    <!-- CDN 설치(원격) -->
+    <!-- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> 
+    -->
+
+</head>
+<body>
+    <!-- ex69_bootstrap.html -->
+    <!--  
+        CSS 디자인 프레임워크
+        - 디자인을 손쉽게 하기 위해 만들어진 라이브러리 모음
+        - Bootstrap
+            - http://getbootstrap.com 공식홈페이지
+            - http://bootstrapk.com 한국어
+            - 버전: v3.0 ~ 5.0 (현재)
+
+
+        Bootstrap 설정
+        - *.css
+        - *.js
+        1. 직접 다운로드 -> 참조
+        2. CDN -> 참조
+
+        
+        가이드 라인
+
+    -->
+
+    <div class="container">
+        <h1 calss="page-header">Bootstrap<small>Design Framework</small></h1>
+        
+        <h2>외부 자료(Preformatted Text - 개행 문자 적용)</h2>
+        <pre>
+class Tset {
+    public void main(<span style="color:red;">String[] args</span>) {
+        System.out.println("Hello World");
+    }
+}
+        </pre>
+
+        <h2>단축키</h2>
+        <p>
+            코드의 정렬은 <kbd>Ctrl + Shift + F</kbd>로 합니다.
+        </p>
+
+
+        <h2>프로그래밍 코드</h2>
+        <p>
+            자바스크립트의 변수는<code>var a = 10;</code> 와 같이 선언합니다.
+        </p>
+
+        <h2>목록</h2>
+        <ul>
+            <li>딸기</li>
+            <li>바나나</li>
+            <li>포도</li>
+        </ul>
+
+        <h2>텍스트 관련</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, cupiditate dolorem! Temporibus enim commodi, perspiciatis ea vitae numquam voluptatum accusantium quae tenetur deserunt modi aliquam quam, sunt doloribus eos sapiente?
+        </p>
+        <p>
+            Temporibus, modi. Exercitationem quisquam facere a saepe nemo adipisci, voluptatum unde id expedita repellendus repellat fugiat odit. Quibusdam repudiandae porro rerum iure saepe, ipsum quidem minus eius asperiores? Eos, totam!
+        </p>
+        <p>
+            Optio minima consectetur quidem iusto sit, vero nesciunt repellendus cumque velit incidunt? Porro harum eveniet suscipit. Architecto fugit non ad porro alias, perspiciatis nesciunt, dolore, aliquam hic facere et est!
+        </p>
+
+        <blockquote class="blockquote-reverse"> <!-- 인용된 문장처럼 나타내기 -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi praesentium distinctio, recusandae alias earum id excepturi suscipit esse aut, ullam eaque autem nobis a amet eum, sapiente veniam consectetur soluta.
+        </blockquote>
+
+        <h2>폼</h2>
+        <table class="table table-bordered" style="width: 600px;">
+            <tr>
+                <th style="width: 150px">텍스트 박스</th>
+                <td><input type="text" class="form-control"></td>
+            </tr>
+            <tr>
+                <th style="width: 150px">암호 박스</th>
+                <td><input type="password" class="form-control"></td>
+            </tr>
+            <tr>
+                <th style="width: 150px">다중라인 텍스트 박스</th>
+                <td>
+                    <textarea 
+                        style="height: 200px;" 
+                        class="form-control">
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px">셀렉트 박스</th>
+                <td>
+                    <select class="form-control">
+                        <option>항목</option>
+                        <option>항목</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <h2>버튼 디자인</h2>
+        <input type="button" value="Button">
+        <button>Button</button>
+        <input type="button" value="Button" class="btn btn-default">
+        <input type="button" value="Button" class="btn btn-primary">
+        <input type="button" value="Button" class="btn btn-success">
+        <input type="button" value="Button" class="btn btn-danger">
+        <input type="button" value="Button" class="btn btn-warning">
+        <input type="button" value="Button" class="btn btn-info">
+
+        <h2>버튼 크기</h2>
+        <input type="button" value="Button" class="btn btn-primary btn-xs">
+        <input type="button" value="Button" class="btn btn-primary btn-sm">
+        <input type="button" value="Button" class="btn btn-primary">
+        <input type="button" value="Button" class="btn btn-primary btn-lg">
+
+        <h2>테이블</h2>
+        <!-- <table class="table"> -->
+        <!-- <table class="table table-bordered"> -->
+        <!-- <table class="table table-striped"> -->
+        <!-- <table class="table table-condensed table-bordered table-striped"> -->
+        <table class="table table-hover">
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>주소</th>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김영혁</td>
+                <td>27</td>
+                <td>남자</td>
+                <td>인천광역시 남동구 논현동</td>
+            </tr>
+        </table>
+        
+    </div>
+</body>
+</html>
