@@ -102,14 +102,35 @@ m1();
 
 console.log('-------------------------------');
 
-//연산자 + 자료형
-// - 자바 스크립트는 오라클과 비슷하게 자동 형변환이 잦다.
+/*
+    [ 연산자 + 자료형 ]
+    - 자바 스크립트는 오라클과 비슷하게 자동 형변환이 잦다.
+    - 자동 형변환이 많다. -> 개발자 편함. 개발자 불편함(가독성 저하)
+    - 자동 형변환이 적다. -> 개발자 불편함(직접 구현), 개발자 편함(가독성 향상).
+*/
+console.log(null == undefined);
 
-// == 연산자
-// ===, !== 
-//- 자료형도 비교하고, 값도 비교한다.
-//- 엄격한 (strict) 값을 비교
+/*
+    [ == 연산자 ]
+    - 자료형의 비교는 하지 않고 데이터만 같은지 판단한다.
+    - 추상적(Abstract) 같음 비교
+*/
+console.log();
+console.log('== 연산자')
 console.log(100 == 100);
-console.long(100 == '100') //false
-console.long(1== ture); //false
-console.long(null == undefined); //false
+console.log(100 == '100'); //true
+console.log(1 == true); //true
+console.log(0 == false); //true
+
+console.log();
+console.log('===, !== 연산자')
+/*
+    [ ===, !== 연산자 ] 
+    - 자료형도 비교하고, 값도 비교한다.
+    - 엄격한(strict) 같음 비교
+    - 자바와 동일
+*/
+console.log(100 === 100);
+console.log(100 === '100'); //false
+console.log(1 === true); //false
+console.log(null === undefined); //false
