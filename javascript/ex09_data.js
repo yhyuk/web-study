@@ -36,14 +36,17 @@ console.log(now.toTimeString());
 console.log(now.toLocaleDateString());
 console.log(now.toLocaleTimeString());
 
+//특정 시각
 var christmas = new Date();
-christmas.setFullYear(2021); //2021, 2000년 이후
-christmas.setMonth(12); //0~11, 월
-christmas.setDate(25); //23, 일
-christmas.setHours(11); //시
-christmas.setMinutes(0); //분
-christmas.setSeconds(0); //초
 
+christmas.setFullYear(2021);
+christmas.setMonth(11);
+christmas.setDate(25);
+christmas.setHours(0);
+christmas.setMinutes(0);
+christmas.setSeconds(0);
+
+console.log(christmas.toLocaleString());
 
 //연산
 // -tick 연산

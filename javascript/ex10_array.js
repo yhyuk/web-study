@@ -23,6 +23,7 @@ console.log(nums[3]);
 console.log(nums[6]); 
 
 //배열 초기화 리스트
+//int[] nums = new int[] { 10, 20, 30 };
 //int[] nums = { 10, 20, 30 };
 
 nums = new Array(10, 20, 30); // X

@@ -47,9 +47,11 @@ hong.address = "서울시";
 //[ JavaScript로 만들기 ]
 var hong = new Object(); //아무것도 없는 객체, 없을 무!!!
 
-//객체 프로퍼티(Property)
-//  - 추가: 객체에 마음대로 지정해서 추가ㅋㅋ;;
-// 즉, 객체에 자바처럼 프로퍼티를 선언하지 않아도 되며, 실제로 아무것도 없어도 직접 필요한것만 그때그때마다 마음대로 지정해서 값을 넣으면 된다.
+/*
+    객체 프로퍼티(Property)
+    - 추가: 객체에 마음대로 지정해서 추가ㅋㅋ;;
+    즉, 객체에 자바처럼 프로퍼티를 선언하지 않아도 되며, 실제로 아무것도 없어도 직접 필요한것만 그때그때마다 마음대로 지정해서 값을 넣으면 된다.
+*/
 hong.name = "홍길동";
 hong.age = 20;
 hong.address = "서울시";
@@ -59,8 +61,10 @@ console.log(hong.age);
 console.log(hong.address);
 console.log(hong);
 
-//방법은 쉽지만 단점이있다.
-// 만약 추가 요구사항으로 홍길동과 똑같은 조건(name, age, address)으로 아무개를 만든다면?
+/*
+    방법은 쉽지만 단점이있다.
+    만약 추가 요구사항으로 홍길동과 똑같은 조건(name, age, address)으로 아무개를 만든다면?
+*/
 
 var aaa = new Object();
 
@@ -74,7 +78,7 @@ console.log(aaa);
 
 
 //2. 객체 리터럴 사용 방법
-hong = {};
+hong = {}; //new Object()
 
 hong.name = 'hong';
 hong.age = 22;
@@ -84,16 +88,18 @@ console.log(hong);
 
 hong = { name: '홍길동', age: 20, address: '서울시'};
 hong = { 
-    name: '홍길동', 
+    name: '홍길동',  //프로퍼티
     age: 20, 
     address: '서울시'
 }; //가독성 때문에 한줄쓰기보다 들여쓰기를 보편적으로 한다.
 
 console.log(hong);
 
-//프로퍼티 접근 방법
-// 1. 멤버 접근 연산자
-// 2. key 접근
+/*
+    프로퍼티 접근 방법
+    1. 멤버 접근 연산자
+    2. key 접근
+*/
 console.log('1. 멤버 접근 연산자: ', hong.name);
 console.log('2. key 접근: ', hong['name']);
 
@@ -108,16 +114,20 @@ console.log(hong);
 delete hong.age;
 console.log(hong);
 
-//객체 탐색(= 프로퍼티 탐색) 
-//  - 해당 객체가 어떤 프로퍼티를 가지고 있는지 순차적으로 탐색
-//  - for in
+/*
+    객체 탐색(= 프로퍼티 탐색) 
+    - 해당 객체가 어떤 프로퍼티를 가지고 있는지 순차적으로 탐색
+    - for in
+ */
 for (var prop in hong) {
     console.log(prop, hong[prop]);
 }
 
-//객체의 멤버
-//1. 변수
-//2. 메소드
+/*
+    객체의 멤버
+    1. 변수
+    2. 메소드
+*/
 hong = new Object();
 
 hong.name = '홍길동';
@@ -224,9 +234,9 @@ function test() {
     호출 -> 선언 : JS에서는 이게 된다. ?? 이게 되네??
     
     Hoisting
-    - 자바스크립트 엔진이 구문(문장)을 실행하기 전에 소스상의 모든 변수선언문과 함수 선언문을 소스의 최상단으로 끌어올린다.
+    - 자바스크립트 엔진이 구문(문장)을 실행하기 전에 소스상의 모든 변수선언문과 함수 선언문을 소스의 최상단으로 이동시킨다. (끌어올린다.)
     - 함수 호이스팅
-    - 변수 호이스팅 ( 사용 거의 안함, 의미없음 )
+    - 변수 호이스팅 ( 사용 안함, 의미없음 )
 */
 console.log(nick);
 print();
@@ -275,9 +285,9 @@ f1();
 console.log(num);
 test();
 
+
 //클래스X -> 생성자 함수
 //요구사항] 동일한 타입의 객체를 3개 생성
-
 var n1 = {
     name: '홍길동',
     age: 20
@@ -291,9 +301,11 @@ var n3 = {
     age: 27
 };
 
-//생성자 함수
-//  - 이름이 파스칼 표기법
-//  - this: 나중에 생성될 객체
+/*
+    생성자 함수
+    - 이름이 파스칼 표기법
+    - this: 나중에 생성될 객체
+ */
 function User() {
     this.name = '홍길동';
     this.age = 20;

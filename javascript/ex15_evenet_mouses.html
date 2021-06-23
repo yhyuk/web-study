@@ -36,7 +36,7 @@
 
         /*
 
-            *** 이벤트!!! : 어떤 행동을 했을 때 발생하는지!!
+            *** 이벤트: 어떤 행동을 했을 때 발생하는지
 
             [ 마우스 관련 이벤트 ] 
             - onmouseXXX
@@ -85,7 +85,7 @@
                     - 마우스 좌표값
                     - 기준점: 문서 좌측 상단
                     - 비표준(MS)
-                2. clientX, clientY
+                2. clientX, clientY *******
                     - 기준점: 문서 좌측 상단
                     - 1번과 동일
                     - 표준(정식)
@@ -93,10 +93,11 @@
                 3. screenX, screenY
                     - 기준점: 모니터 좌측 상단
                     - 잘안쓴다. 알아만 두자
-                4. offsetX, offsetY
+                4. offsetX, offsetY *******
                     - 기준점: 이벤트가 걸린 태그의 좌측 상단
                     - CSS의 relative와 동일한 좌표계
             */
+
            //txt1.value = event.x + ',' + event.y + '\n' + txt1.value;
            //txt1.value = event.clientX + ',' + event.clientY + '\n' + txt1.value;
            //txt1.value = event.screenX + ',' + event.screenY + '\n' + txt1.value;
@@ -111,7 +112,8 @@
         txt1.onmousemove = function() {
             // txt1.value = 'mousemove\n' + txt1.value;
 
-            txt1.value = event.offsetX + ',' + event.offsetY + '\n' + txt1.value; //mouse tracking
+            //mouse tracking
+            txt1.value = event.offsetX + ',' + event.offsetY + '\n' + txt1.value; 
         }
 
         btn1.onmouseover = function() {
@@ -123,10 +125,12 @@
         };
 
         window.document.all.cat1.onmousedown = function() {
+
             if (event.offsetX > 100 && event.offsetX < 125
                 && event.offsetY > 70 && event.offsetY < 100) {
                     alert('거기는 고양이 코입니다!! ');
                 }
+                
         };
 
         btn1.onclick = function() {

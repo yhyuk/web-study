@@ -33,8 +33,8 @@ function f2(num) {
 }
 
 f2(100);
-f2(1995);
-f2(1128);
+f2(12.5);
+f2(12345);
 
 //매개변수X, 반환값O
 function f3() {
@@ -42,14 +42,14 @@ function f3() {
 }
 
 var result = f3();
-console.log('반환값입니다.', result);
+console.log(result);
 
 //매개변수O, 반환값O
 function f4(a, b) {
     return a + b;
 }
 
-console.log((f4(100,200)));
+console.log(f4(100,200));
 
 // 주의점!!
 function hello(name) {

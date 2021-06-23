@@ -17,7 +17,7 @@
         1. 정적 방식 > BOM 정적 이벤트 모델
             - 이벤트가 발생할 태그에 onXXX 속성을 미리 정의한다.
             - onXXX 속성: 이벤트 핸들러, Event Handler > 사건이 발생하면 일을 처리하는 담당자
-            - 하는일이 고정일 대.. (변화가 없을 때)
+            - 하는일이 고정일 때.. (변화가 없을 때)
         2. 동적 방식 > BOM 동적 이벤트 모델
             - 자바스크립트로 객체를 찾아서 이벤트를 정의한다.
             - 태그객체.onXXX = 익명함수;
@@ -43,13 +43,14 @@
         var txt1 = window.document.form1.txt1;
 
         /*
+        //동적 이벤트 모델
         btn1.onclick = function() {
             // alert();
             txt1.value = '클릭';
         };
         */
 
-        btn1.onclick = function() { //여기에서만 사용가능한 익명 함수 
+        btn1.onclick = function() { //여기에서만 사용 가능한 익명 함수 
             
         };
 
@@ -58,13 +59,13 @@
         };
 
         btn1.onclick = test;
-        test();// 다른용도로 호출
+        test();//다른용도로 호출
 
 
 
         var now = new Date();
         
-        // 동적 이벤트 모델은 이벤트를 제어할 수 있다.
+        //동적 이벤트 모델은 이벤트를 제어할 수 있다.
         //수요일에만 btn2를 클릭할 수 있다. -> 조건부 클릭 이벤트
         if (now.getDay() == 2) {
             btn2.onclick = function() {

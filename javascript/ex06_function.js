@@ -23,9 +23,10 @@ console.log(n1); //undefined
 
 n1 = f1; //함수 자체를 변수 n1에 대입(=함수 포인터)
 console.log(n1);
-
 n1(); // *******
 
+console.log();
+console.log();
 var n2 = n1;
 n2();
 
