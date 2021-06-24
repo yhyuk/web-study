@@ -9,29 +9,30 @@
         //JS에서 가장 많이 나는 에러 : Cannot read property 'txt1' of undefined
         // window.document.form1.txt1.value = new Date();
 
-        // <body onload="">
-        //  - HTML 문서의 모든 내용이 브라우저에 의해 로딩되고 난 직후에 발생하는 이벤트
+        //<body onload="">
+        // - HTML 문서의 모든 내용이 브라우저에 의해 로딩되고 난 직후에 발생하는 이벤트
 
         function init() {
             window.document.form1.txt1.value = new Date();
         }
 
-        //<body onload=">" 유사
-        window.onload. fucntion() {
-            // arlert();
+        //<body onload=""> 유사
+        window.onload = function() {
+            //alert();
         };
+
     </script>
 </head>
-<body onload="init();">
+<!-- <body onload="init();"> -->
+<body>
     <!-- ex14_event.html -->
-
     <h1>Event</h1>
     <form name="form1">
-        <input type="text" name="txt1" size="50">
+        <input type="text" name="txt1" size="50" />
     </form>
 
     <script>
-        // window.document.form1.txt1.value = new Date();
+        //window.document.form1.txt1.value = new Date();
     </script>
 
 </body>

@@ -42,13 +42,13 @@
         var btn2 = window.document.form1.btn2;
         var txt1 = window.document.form1.txt1;
 
-        /*
+        
         //동적 이벤트 모델
         btn1.onclick = function() {
             // alert();
             txt1.value = '클릭';
         };
-        */
+        
 
         btn1.onclick = function() { //여기에서만 사용 가능한 익명 함수 
             
@@ -61,13 +61,11 @@
         btn1.onclick = test;
         test();//다른용도로 호출
 
-
-
         var now = new Date();
         
         //동적 이벤트 모델은 이벤트를 제어할 수 있다.
         //수요일에만 btn2를 클릭할 수 있다. -> 조건부 클릭 이벤트
-        if (now.getDay() == 2) {
+        if (now.getDay() == 3) {
             btn2.onclick = function() {
                 alert('클리이이익!!');
             };
