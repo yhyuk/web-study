@@ -26,9 +26,9 @@
         function m5(btn) {
             //this: 이벤트를 발생시킨 태크 자기 자신이다.
             //alert(btn.name);
-            //alert(this.name); //함수에서 쓰의는 this랑 바깥쪽 this랑 다르다.
+            //alert(this); //window 객체
 
-            window.document.body.bgColor = btn.value();
+            window.document.body.bgColor = btn.value;
         }
 
         function m6() {
@@ -92,15 +92,11 @@
     </form>
 
     <h2>7번 방법</h2>
-    <form name="form6">
-        <!--  
-
-            data-XXX 속성
-                : 사용자 정의 속성(개발자 맘대로)
-        -->
+    <form name="form7">
+        <!-- data-XXX 속성: 사용자 정의 속성(개발자 맘대로) -->
         <input type="button" value="빨강" name="btn17" data-color="tomato">
-        <input type="button" value="초록" name="btn17" data-color="green">
-        <input type="button" value="파랑" name="btn17" data-color="blue">
+        <input type="button" value="초록" name="btn17" data-color="gold">
+        <input type="button" value="파랑" name="btn17" data-color="cornflowerblue">
     </form>
 
     <script>
@@ -130,27 +126,27 @@
         btn15.onclick = m7;
 
 
-        var btn16 = window.document.forms6.btn16;
+        var btn16 = window.document.form6.btn16;
         // btn16[0].onclick = m7;
         // btn16[1].onclick = m7;
         // btn16[2].onclick = m7;
 
-        for ( var i=0; i<btn16.lenghth; i++) {
+        for ( var i=0; i<btn16.length; i++) {
             btn16[i].onclick = m7;
         }
 
-        btn16.forEach(function (item, item) {
-            item.onclik
+        btn16.forEach(function (item, index) {
+            item.onclick = m7;
         })
 
         var btn17 = window.document.form7.btn17;
 
-        btn17.forEach(function (item, item) {
+        btn17.forEach(function (item, index) {
             item.onclick = function() {
                 window.document.body.bgColor = item.dataset["color"];
             };
         });
-        s
+
     </script>
 </body>
 </html>

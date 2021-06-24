@@ -22,7 +22,7 @@
             - onkeyXXX
             - 주로 폼 관련 태그에게 적용한다. ( 포커스를 가지지 않으면 발생하지 않기 때문에 )
 
-            [ 속성값 ]
+            [ 속성값, 1번, 2번만 주의깊게 보자 ]
             1. onkeydown(*****)
                 - 키를 눌렀을 때 발생
                 - 물리적 키에 반응하는 이벤트
@@ -32,7 +32,8 @@
             2. onkeyup
                 - 키를 땟을 때 발생
                 - 중요: 현재 입력한 값이 관계된 일이라면.. keyup을 사용
-
+            
+            --------------------------------------------------------------------------------
             3. onkeypress (onkeydown에 밀려서 거의 안쓰인다.)
                 - 키를 눌렀을 때 발생
                 - 문자키에 반응하는 이벤트(ASCII문자 - 영어 + 숫자 + 특수문자)
@@ -83,14 +84,14 @@
                     - 이벤트가 발생할 때만 참조할 수 있는 객체
                 */
                //console.log(event.keyCode); //누른 키의 문자 코드값
-               //console.log(txt1.value);
+               console.log(txt1.value);
             }; 
 
             txt1.onkeyup = function() {
                 // console.log('keyup');
             };
 
-            txt1.onkeypress = function() { //난 왜 onkeypress 안되지?
+            txt1.onkeypress = function() {
                 // console.log('keypress'); 
                 // console.log(event.keyCode);
             };
