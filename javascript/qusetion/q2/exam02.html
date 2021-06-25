@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        td:nth-child(1) {
+            border: 1px solid black;
+            width: 173px;
+        }
+
+        td:nth-child(2) { 
+            border: 1px solid black;
+            width: 430px;
+        }
+
+        a {
+            border: 1px solid black;
+            display:block;
+            width: 150px;
+            height: 30px;
+            margin: 10px auto;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.3em;
+            
+        }
+
+        a:visited { color: black; text-decoration: none;}
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1 style="text-align: center;">롤 오버 이미지 + 새창 띄우기</h1>
+    <form name="form">
+        <table>
+            <tr>
+                <td>
+                    <a href="" data-no="1">강아지1</a>
+                    <a href="" data-no="2">강아지2</a>
+                    <a href="" data-no="3">강아지3</a>
+                    <a href="" data-no="4">강아지4</a>
+                    <a href="" data-no="5">강아지5</a>
+                </td>
+                <td>
+                    <img src="../images/dog01.jpg" name="dog">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        window.onload = function() {
+            var list = document.links;
+
+            for (var i=0; i<list.length; i++) {
+                list[i].onmouseover = function() {
+                    document.images['dog'].src = "../images/dog0" +
+                    event.srcElement.dataset["no"] + ".jpg";
+                };
+
+                list[i].onclick = function() {
+                    window.open("../images/dog0" + event.srcElement.dataset["no"] + "_big.jpg", "big", "width=1400, height=1050");
+                };
+
+            };
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        #imgbox {
+            display: block;
+            border: 1px solid #DEDEDE;
+            padding: 5px;
+            width: 550px;
+            margin: 0 auto;
+        }
+
+        #imgbox img {
+            margin-top: 5px;
+        }
+
+        input {
+            border: 0px solid;
+            width: 550px;
+            display: block;
+            margin: 0 auto;
+            font-size: 1.6em;
+            font-weight: bold;
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>롤 오버 이미지 + 텍스트 박스</h1>
+    <form name="form">
+        <div id = "imgbox">
+            <img src="../../images/img01.jpg" name="img1">
+            <img src="../../images/img02.jpg" name="img2">
+            <img src="../../images/img03.jpg" name="img3">
+        </div>
+        <input type="text" name="txt1" readonly="readonly">
+    </form>
+
+    <script>
+        var img1 = document.images['img1'];
+        var img2 = document.images['img2'];
+        var img3 = document.images['img3'];
+
+        var txt1 = document.form.txt1;
+
+        img1.onmouseover = function() {
+            img1.src = "../../images/img04.jpg";
+            txt1.value = "'스키'타는 사람이 '당근'으로 변했습니다.";
+        }
+        img1.onmouseout = function() {
+            img1.src = "../../images/img01.jpg";
+            txt1.value = "";
+        }
+
+        img2.onmouseover = function() {
+            img2.src = "../../images/img05.jpg";
+            txt1.value = "'해바라기'가 '피망'으로 변했습니다.";
+        }
+        img2.onmouseout = function() {
+            img2.src = "../../images/img02.jpg";
+            txt1.value = "";
+        }
+
+        img3.onmouseover = function() {
+            img3.src = "../../images/img06.jpg";
+            txt1.value = "'나무'가 '개'로 변했습니다.";
+        }
+        img3.onmouseout = function() {
+            img3.src = "../../images/img03.jpg";
+            txt1.value = "";
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>롤 오버 이미지</h1>
+    <form name="form1">
+        <img src="../images/cat01.jpg" name="cat1">
+        <img src="../images/cat02.jpg" name="cat2">
+        <img src="../images/cat03.jpg" name="cat3">
+        <img src="../images/cat04.jpg" name="cat4">
+        <img src="../images/cat05.jpg" name="cat5">
+    </form>
+
+    <script>
+        window.onload = function() {
+            var list = document.images;
+
+            for ( var i=0; i<list.length; i++ ) {
+                list[i].onmouseover = function() {
+                    event.srcElement.src = "../images/dog0" + getNum(event.srcElement.src) + ".jpg";
+                };
+
+                list[i].onmouseout = function() {
+                    event.srcElement.src = "../images/cat0" + getNum(event.srcElement.src) + ".jpg";
+                };
+            }
+        };
+
+        function getNum(url) {
+            var index = url.lastIndexOf(".");
+            return url.substr(index-1, 1);
+	    }   
+    </script>
+</body>
+</html>

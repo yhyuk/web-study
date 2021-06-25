@@ -132,11 +132,11 @@
         <div>
             <label>동물: </label>
             <select name="sel1" multiple sizse="7">
-                <option value="1">토끼</option>
-                <option value="2">거북이</option>
-                <option value="3">돼지</option>
-                <option value="4">소</option>
-                <option value="5">개구리</option>
+                <option value="1">강아지</option>
+                <option value="2">고양이</option>
+                <option value="3">병아리</option>
+                <option value="4">토끼</option>
+                <option value="5">거북이</option>
             </select>
             <br><br>
 
@@ -326,44 +326,51 @@
 
         btn7.onclick = function() {
 
-            var flag = false;
+            //var flag = false;
+
             for (var i=0; i<sel1.options.length; i++) {
-                if ( sel1.options[i].txt == '햄스터')
-                flag = true;
-                break;
+                if (sel1.options[i].text == '햄스터') {
+                    //flag = true;
+                    //break;
+                    return;
+                }
             }
 
-            //<option> 동적 추가
-            var op = new Option(); //<option> 태그 생성
-            op.value = 6; //<option value="6"></option>
-            op.text = '햄스터' //<option value="6">햄스터</option>
+            //if (!flag) {
+                //<option> 동적 추가
+                var op = new Option(); //<option> 태그 생성
+                op.value = 6; //<option value="6"></option>
+                op.text = '햄스터'; //<option value="6">햄스터</option>
 
-            //<select>에 <option> 추가
-            sel1.options.add(op);
+                //<select>에 <option> 추가
+                sel1.options.add(op);
+            //}
         };
 
+
         btn8.onclick = function() {
-
             //<option> 삭제
-            // sel1.options.remove(0);
-            // sel1.options.remove(sel1.selectedIndex);
+            //sel1.options.remove(0);
 
-            if (sel1.option. length > 1 ) {
-                sel1.option.remoeve
+            //sel1.options.remove(선택한 옵션의 index);
+
+            if (sel1.options.length > 1) {
+            sel1.options.remove(sel1.selectedIndex);
             }
         };
 
         btn9.onclick = function() {
+
             //다중 선택 > 선택한 항목들?
-
             for (var i=0; i<sel1.options.length; i++) {
-                // alert(sel1.options[i].selected)
-
-                if ( sel1.options[i].selected ) {
-                    alert(sel1.option[i].txt + ': ' + sele1.options[i].value);
+                //alert(sel1.options[i].selected);
+                if (sel1.options[i].selected) {
+                    alert(sel1.options[i].text + ':' + sel1.options[i].value);
                 }
             }
+
         };
+
 
     </script>
 </body>
