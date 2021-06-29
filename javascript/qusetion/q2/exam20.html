@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 { text-align: center; }
+
+        #tbl {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        #tbl td {
+            border: 1px solid black;
+            font-size: 5em;
+            font-weight: bold;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <h1>테이블 + 집합 이벤트 + innerText</h1>
+    <table id="tbl">
+        <tbody id="tbody">
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        
+        window.onload = function() {
+
+            var td = document.getElementsByTagName('td');
+
+            for (var i=0; i<td.length; i++) {
+
+                td[i].onmousedown = function() {
+                    var c = event.srcElement;
+                    var n = parseInt(c.innerText);
+    
+                    if (event.buttons == 1) {
+                        n++;
+                        c.innerText = n;
+                        c.bgColor = "white";
+                    } else if (event.buttons == 2) {
+                        n--;
+                        if (n <= 0) {
+                            n = 0;
+                            c.bgColor = "#ccc";
+                            event.srcElement.onmousedown = null;
+                        }
+                        c.innerText = n;
+                    }
+                };
+            }
+        };
+
+
+    </script>
+</body>
+</html>

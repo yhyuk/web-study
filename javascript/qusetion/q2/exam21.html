@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 { text-align: center; }
+
+        #tbl { 
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        #tbl td { 
+            border: 1px solid black;
+            width: 126px; 
+            height: 126px; 
+        }
+
+        #tbl td img { display: block }
+    </style>
+</head>
+<body oncontextmenu="return false">
+    <h1>테이블 + 집합 이벤트 + innerHTML</h1>
+
+    <table id="tbl">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        var td = document.getElementsByTagName('td');
+
+        for (var i=0; i<td.length; i++) {
+
+            td[i].onmousedown = function() {
+
+                if (event.buttons == 1) {   // 오른쪽 클릭
+
+                    // 빈공간인지 check
+                    if (event.srcElement.innerText == "") {
+                        var img = document.createElement('img');
+                        img.setAttribute('src', '../images/rect_icon01.png');
+                        event.srcElement.appendChild(img);
+                    }
+
+                } else if (event.buttons == 2) {    // 왼쪽 클릭
+
+                    // 빈공간인지 check
+                    if (event.srcElement.innerText == "") {
+                        img = document.createElement('img');
+                        img.setAttribute('src', '../images/rect_icon02.png');
+                        event.srcElement.appendChild(img);
+                    }
+
+                }
+
+            };
+
+        }
+    </script>
+</body>
+</html>
