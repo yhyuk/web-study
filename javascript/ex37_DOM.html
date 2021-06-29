@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex37_DOM.html -->
+
+    <!-- 태그 조작 -->
+    <h3>예제1, 2</h3>
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div id="div1"></div>
+    <hr>
+    <h3>예제 3</h3>
+    <input type="button" value="버튼" id="btn2"><br><br>
+    <div id="cat">
+        <img src="images/catty01.png">
+        <img src="images/catty02.png">
+        <img src="images/catty03.png">
+        <img src="images/catty04.png">
+        <img src="images/catty05.png">
+    </div>
+
+    <script>
+        
+        var btn1 = document.getElementById("btn1");
+        var div1 = document.getElementById("div1");
+
+        // DOM을 사용해서 태그 + 속성 + PCDATA 조작
+        // - 생성, 제어, 삭제
+
+        // 예제 1 ==========================================================
+        // <a href="http://naver.com">네이버</a> 추가하기
+        // BOM -> 불가능
+        // DOM -> 가능
+        btn1.onclick = function() {
+
+            // 방법1. 간단하지만, 불편하다(의미없는 텍스트 조작)
+            // div1.innerHTML = "<a href='http://naver.com'>네이버</a>";
+
+            // 표준 방법 (FM) *******************
+            // 1. <a></a> 태그 생성
+            var a = document.createElement('a');
+            // alert(a.nodeType); // 1
+            // alert(a.nodeName); // A
+
+            // 2. href='' 생성
+            var href = document.createAttribute("href");
+            // href='http://naver.com' 값 넣기
+            href.nodeValue = 'http://naver.com';
+
+            // 3. 태그 + 속성 추가하기
+            // <a href='http://naver.com'></a> 만들기
+            a.setAttributeNode(href);
+
+            // 4. PCDATA 추가하기
+            var text = document.createTextNode('네이버');
+
+            // 5. 태그 + 텍스트 추가하기
+            a.appendChild(text);
+            console.log(a); // <a href='http://naver.com'>네이버</a>
+
+            // 6. 마지막 원래 추가하기로한 div1에 추가하기
+            div1.appendChild(a);
+
+            // --> 직접 표준 방법을 써보니까 조직화 되어있기는 하지만, 너무 버겁다.
+        };
+
+        // 위 표준 방법의 다른 방법
+        btn1.onclick = function() {
+            
+            var a = document.createElement('a');
+
+            a.setAttribute('href', 'http://naver.com');
+            a.innerHTML = '네이버';
+            div1.appendChild(a);
+
+        };
+
+        // 예제 2 ===================================================
+        // 링크 x 3개 만들기
+        btn1.onclick = function() {
+
+            // 순수 배열 3개 생성
+            var data = [
+                {
+                    name: '네이버',
+                    url: 'http://naver.com'
+                },
+                {
+                    name: '구글',
+                    url: 'http://google.com'
+                },
+                {
+                    name: '다음',
+                    url: 'http://daum.net'
+                }
+            ];
+            
+            data.forEach(function(item, index) {
+                // 값 잘 넣었는지 확인하기
+                // alert(item.name + ',' + item.url);
+
+                // BOM 방식
+                // div1.innerHTML += "<a href='" + item.url + "'>" + item.name + "</a><br>";
+
+                // DOM 방식
+                var a = document.createElement('a');
+                a.setAttribute('href', item.url);
+                a.innerText = item.name;
+                div1.appendChild(a);
+
+                var br = document.createElement('br');
+                div1.appendChild(br);
+
+            });
+
+        };
+
+        // 예제 3 ===========================================================
+        var btn2 = document.getElementById('btn2');
+        var cat = document.getElementById('cat');
+
+        btn2.onclick = function() {
+
+            //img의 부모 -> #cat
+            
+            for (var i=0; i<cat.children.length; i++) {
+                // 사이즈 줄이기 =============================================
+                // cat.children[i].width = 50;
+
+                // 선택한 고양이 삭제하기 ====================================
+                cat.children[i].onclick = function() {
+                    cat.removeChild(event.srcElement);
+                };
+            }
+            
+
+            // 삭제 ===========================================================
+            // DOM에서 태그 삭제는 부모가 한다.
+            // cat.removeChild(자식 태그);
+            // cat.removeChild(cat.firstElementChild);
+            // cat.removeChild(cat.lastElementChild);
+            // cat.removeChild(cat.children[2]);
+
+        };
+
+    </script>
+</body>
+</html>

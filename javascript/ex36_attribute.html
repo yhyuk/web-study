@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex36_attribute.html -->
+
+    <h1>속성 제어</h1>
+    <a href="http://google.com" id="link1">구글</a>
+    <hr>
+    <input type="button" value="버튼" id="btn1">
+
+    <script>
+        var link1 = document.getElementById("link1");
+        var btn1 = document.getElementById("btn1");
+
+        btn1.onclick = function() {
+
+            /*
+                속성제어
+                1. BOM
+                - HTML의 속성을 JavaScript에서 프로퍼티로 제공한다.
+
+                2. DOM
+                - getter(), setter() 제공
+            */
+
+            // BOM 방식 ===============================================
+            
+            // link1.href = 'http://w3.org';
+            // link1.target = '_blank';
+            // link1.innerText = 'W3C';
+
+
+            // DOM 방식 ===============================================
+
+            // link1.setAttribute('href', 'http://daum.net');
+            // alert(link1.getAttribute('href'));
+            // link1.setAttribute('target', '_blank');
+            // link1.textContent = '다음';
+
+            // [ 속성 탐색하기 ]
+            // alert(link1.attributes.length); //2
+           
+            /*
+            for (var i=0; i<link1.attributes.length; i++) {
+                console.log('nodeName', link1.attributes[i].nodeName);
+                console.log('nodeType', link1.attributes[i].nodeType);
+                console.log('nodeValue', link1.attributes[i].nodeValue);
+            }
+            */
+
+            // [ 프로퍼티 종류 ]
+            // link1.attributes
+            // link1.setAttribute
+            // link1.getAttribute
+            // link1.removeAttribute('href'); // 삭제
+            // link1.toggleAttribute('href'); // 값을 넣었다가~ 뺏다가~
+
+        };
+
+    </script>
+</body>
+</html>

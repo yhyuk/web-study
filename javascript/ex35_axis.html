@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+
+        #n7 {
+            border: 5px solid cornflowerblue;
+        }
+
+        .sel { 
+            border: 5px solid tomato; 
+        }
+    </style>
+</head>
+<body>
+    <!-- ex40_axis.html -->
+    <div id="n1">할아버지
+        <div id="n2">큰아버지
+           <div id="n5">사촌</div>
+        </div>
+        <div id="n3">아버지
+           <div id="n6">형</div>
+           <div id="n7">나
+              <div id="n10">첫째 자식</div>
+              <!-- 기준 요소 -->
+              <div id="n11">둘째 자식
+                 <div id="n13">손자</div>
+              </div>
+              <div id="n12">셋째 자식</div>
+           </div>
+           <div id="n8">동생</div>
+        </div>
+        <div id="n4">작은아버지
+           <div id="n9">사촌</div>
+        </div>
+     </div>
+     
+     <hr>
+     <input type="button" value="확인" id="btn1">
+
+     <script>
+        
+        /*
+            [ Axis 검색 ]
+            - 상대 검색
+            - 나를 중심으로 다른 노드를 찾는 검색 방식
+
+            [ DOM Tree의 구성요소(**********) ]
+            - 페이지 소스의 모든 요소들이 구성요소가 된다.
+            - 선언문(<!DOCTYPE>), 주석, 태그, PCDATA, 속성 등....
+
+        */
+
+        var btn1 = document.getElementById("btn1");
+        var n7 = document.getElementById("n7");
+
+        btn1.onclick = function() {
+
+            /*
+                Tree구조 -> 요소 -> 노드(Node)
+
+                [ 내 자식들 검색 도구 ]     
+                - hasChildNodes
+                    -> 자식이 있느냐? 확인
+
+                - childNodes
+                    -> 유사배열, constructor 확인하면 function NodeList();
+                - firstChild
+                    -> 첫번째 자식
+                - lastChild
+                    -> 마지막 자식
+
+                - children
+                - firstElementChild
+                - lastElementChild
+            */
+
+            // hasChildNodes ===============================================
+            // alert(n7.hasChildNodes()); //true
+            
+            // childNodes ==================================================
+            // alert(n7.childNodes.length); // 내 자식이 몇명? > 7명
+
+
+            /*
+
+                [ 노드(Node) ]
+                - 태그, 속성, PCDATA, 주석, 선언문 등 ...
+
+                [ 프로퍼티 종류 ]
+                1. nodeType
+                    - 해당 노드의 타입
+                    - 태그(1), 속성(2), PCDATA(3), 주석(8), 선언문(13)
+                        -> 방법없음!! 그냥 외워야함 (****************)
+                
+                2. nodeName
+                    - 태그(태그명), 속성(속성명), PCDATA(#text), 주석(#comment), 나머지(#xxxx)
+                
+                3. nodeValue
+                    - 태그(null), 속성(속성값), PCDATA(텍스트)
+                    - 값이 안보이는(없는) 애들은 공백
+
+            */
+
+            // 노드 프로퍼티 종류 확인
+            /* 
+            for (var i=0; i<n7.childNodes.length; i++) {
+                console.log('index', i);
+                console.log('\ nodeType', n7.childNodes[i].nodeType);
+                console.log('\ nodeName', n7.childNodes[i].nodeName);
+                console.log('\ nodeValue', n7.childNodes[i].nodeValue);
+            }
+            */
+
+            // children ==================================================
+            /*
+                [ childNodes vs children ]
+                childNodes: 모든 타입의 노드를 자식으로.. (불편, 피곤 -_-)
+                children: 태그만 자식으로.. (편하다.)
+            */ 
+
+            // console.log(n7.children.length);
+
+            /*
+            for (var i=0; i<n7.children.length; i++) {
+                console.log('nodeType', n7.children[i].nodeType);
+                console.log('nodeName', n7.children[i].nodeName);
+            }
+            */
+
+            // firstElementChild, lastElementChild =============================
+            // n7.firstElementChild.className = "sel";
+            // n7.lastElementChild.className = "sel";
+
+        };
+
+        
+        /*
+            같은함수를 또 써도 될까? -> ㅇㅇ 됨
+                var a = 10;
+                a = 20;
+            - 이렇게 한 원리랑 똑같음. 
+            - 덮어쓰기 형식으로 마지막에 쓴 코드가 된다.
+            - 가독성이 안좋아서 좋은 코드는 아니다..
+        */
+        btn1.onclick = function() {
+
+            /*
+                부모 
+                - n7.parentNode
+                - n7.parentElement
+
+                - 둘다 똒같음
+                - 보통 parentNode를 많이씀
+            */
+
+            // n7.parentNode.className = "sel";
+            // n7.parentNode.parentNode.className = "sel";
+            // n7.parentNode.parentNode.parentNode.className = "sel";
+            // n7.parentNode.parentNode.parentNode.parentNode.className = "sel";
+            
+            /*
+                <html> 노드의 부모
+                - 화면에 안보이는 노드
+                - window.document 객체
+            */
+            // n7.parentNode.parentNode.parentNode.parentNode.parentNode.className = "sel";
+
+            // alert(n7.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName); //document
+            // alert(n7.parentNode.parentNode.parentNode.parentNode.parentNode.nodeType);
+            // alert(n7.parentNode.parentNode.parentNode.parentNode.parentNode === window.document); // true
+
+            // BOM: document의 부모는 window이다.
+            // DOM: document가 최상위 객체이다.
+            alert(n7.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName); // Error
+
+        };
+
+        btn1.onclick = function() {
+
+            // 형제(형, 동생) 찾기 
+            // 방법1 ====================================================
+            // n7.parentNode.firstElementChild.className = "sel";
+            // n7.parentNode.lastElementChild.className = "sel";
+
+            // 방법2 ====================================================
+            n7.previousElementSibling.className = "sel";
+            n7.nextElementSibling.className = "sel";
+
+        };
+
+        // 패턴
+        // 1. id 검색후 나를 검색
+        // 2. 나를 중심으로 axis 검색
+
+     </script>
+</body>
+</html>
