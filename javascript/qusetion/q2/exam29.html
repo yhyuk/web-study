@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #tbl {
+            border: 1px solid #999;
+            border-collapse: collapse;
+            width: 805px;
+        }
+        #tbl th, #tbl td {
+            border: 1px solid #999;
+        }
+        #tbl th {
+            background-color: #444;
+            color: white;
+            padding: 7px;
+        }
+        #tbl td {
+            height: 80px;
+            width: 115px;
+            vertical-align: top;
+            padding: 15px;
+            position: relative;
+        }
+        #tbl .no {
+            position: absolute;
+            right: 10px;
+            top: 9px;
+        }
+        #tbl td div {
+            font-size: .9em;
+        }
+        #tbl td:first-child .no {
+            color: tomato;
+        }
+
+        #tbl td:last-child .no {
+            color: cornflowerblue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>달력</h1>
+    <div>달력을 출력하시오.</div>
+    <ul>
+        <li>만년 달력</li>
+    </ul>
+    <div class="code"></div>
+
+    <h1 id="title"></h1>
+    <table id="tbl">
+        <thead>
+            <tr>
+                <th>SUN</th>
+                <th>MON</th>
+                <th>TUE</th>
+                <th>WED</th>
+                <th>THU</th>
+                <th>FRI</th>
+                <th>SAT</th>
+            </tr>
+        </thead>
+        <tbody id='tbody1'></tbody>
+    </table>
+
+    <script>
+
+        var title = document.getElementById('title');
+        var tbody1 = document.getElementById('tbody1');
+
+        var now = new Date();
+
+        // 해당월의 마지막날
+        var lastDay = (new Date(now.getFullYear(), now.getMonth()+1, 0)).getDate();
+        // 해당월의 1일의 요일
+        var firstDay = (new Date(now.getFullYear(), now.getMonth(), 1)).getDay();  
+
+        // title: 현재 년, 월
+        title.textContent = now.getFullYear() + "." + (now.getMonth() + 1);
+
+        // 첫번째 주 공백 채우기
+        var temp = "";
+        temp = "<tr>";
+
+        for (var i=0; i<firstDay; i++) {
+            temp += "<td></td>";
+        }
+
+        // 날짜 채우기 
+        for (var i=1; i<=lastDay; i++) {
+            temp += "<td>";
+            temp += "<span class='no'>" + i + "</span>";
+            temp += "<div>할일</div>";
+            temp += "<div>두번째 할일</div>";
+            temp += "<div>세번째 할일</div>";
+            temp += "</td>";
+            if ((i + firstDay) % 7 == 0) { 
+                temp += "</tr><tr>";
+            }
+        }
+
+        // 마지막 주 공백 채우기
+        var seed = 7;
+        
+        if (7 - (lastDay % 7 + firstDay) < 0) {
+            seed = 14;
+        }
+
+        for (var i=0; i<(seed - (lastDay % 7 + firstDay)); i++) {
+            temp += "<td></td>";
+        }
+        temp += "<tr>";
+
+        tbody1.innerHTML = temp;
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .icon {
+            position: absolute;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <!-- https://pinnpublic.github.io/example/javascript/exam26.html -->
+    <h1>마우스 + 동적 랜덤 이미지 추가하기(10개)</h1>
+
+    <script>
+
+        var imgCount = 0;
+        var firstImage = null;
+
+        window.onload = function() {
+            window.onmousedown = function() {
+                
+                imgCount = 0;
+                var rnd = Math.floor(Math.random()*9)+1;
+    
+                var img = document.createElement('img');
+                img.setAttribute('class', 'icon');
+                img.setAttribute('src', '../images/m0' + rnd + '.png');
+                img.style.left = (event.clientX - 100) + 'px';
+                img.style.top = (event.clientY - 100) + 'px';
+    
+                document.body.appendChild(img);
+                
+                // 10개 까지
+                for (var i=0; i<document.body.children.length; i++) {
+                    if(document.body.children[i].nodeName == "IMG") {
+                        if(firstImage == null) {
+                            firstImage = document.body.children[i];
+                        }
+                        imgCount++;
+                    }
+                }
+    
+                if (imgCount > 10) {
+                    document.body.removeChild(firstImage);
+                    firstImage = null;
+                }
+
+            };
+        };
+
+
+
+    </script>
+</body>
+</html>
