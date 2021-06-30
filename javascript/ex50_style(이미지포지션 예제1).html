@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: gold;
+            position: absolute;
+        }
+
+        #cat {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex50.html mtl -->
+    <h1>Drag & Drop</h1>
+    <h3>예제1, 2</h3>
+    <div id="box"></div>
+    <img src="images/catty01.png" id="cat">
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <h3>예제3</h3>
+    <a href="http://naver.com" id="link1">Naver</a>
+    <input type="text" onkeydown="return false;">
+
+    <script>
+
+        var link1 = document.getElementById('link1');
+        var box = document.getElementById('box');
+        var cat = document.getElementById('cat');
+        var isDown = false;
+        var x, y;
+        
+        window.onmousedown = function() {
+            if (event.srcElement.id == 'box') {
+                isDown = true;
+
+                x = event.offsetX;
+                y = event.offsetY;
+            }
+        };
+
+        window.onmouseup = function() {
+            isDown = false;
+        };
+
+        window.onmousemove = function() {
+            if (isDown) {
+                box.style.left = event.clientX - x + 'px';
+                box.style.top = event.clientY - y + 'px';
+            }
+        };
+
+        // 예제 2 ===================================================
+        // 고냥이 =====================================================
+        window.onmousedown = function() {
+            if (event.srcElement.id == 'cat') {
+                isDown = true;
+
+                x = event.offsetX;
+                y = event.offsetY;
+            }
+        };
+
+        window.onmouseup = function() {
+            isDown = false;
+        };
+
+        window.onmousemove = function() {
+            if (isDown) {
+                cat.style.left = event.clientX - x + 'px';
+                cat.style.top = event.clientY - y + 'px';
+
+                // 고스트 이미지 제거(이미지 태그 에서만 발생)
+                // 이벤트 함수의 반환값이 false > 이벤트가 없었던 일로 처리
+                event.preventDefault(); // 기본 동작 제거
+                return false;
+            }
+        };
+
+
+        // 예제 3 =================================================
+        link1.onclick = function() {
+            //현재 발생 이벤트 취소
+            event.preventDefault();
+            return false;
+        };
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex42_style.html -->
+
+    <h1>뉴스</h1>
+
+    <fieldset>
+        <button type="button" id="big">크게</button>
+        <button type="button" id="small">작게</button>
+    </fieldset>
+    <p id="content">
+        일론 머스크 테슬라 최고경영자(CEO)가 인공위성을 활용한 인터넷 서비스 '스타링크'에 최대 300억달러(약 33조9500억원)를 투자할 계획이라고 밝혔다.
+
+        로이터통신 등에 따르면 머스크는 29일(현지시간) 스페인 바르셀로나에서 열린 '모바일월드콩그레스(MWC) 2021' 기조연설을 통해 "현재 6만9000명 수준인 스타링크 위성 서비스 가입자가 1년 안에 50만 명으로 늘어날 것"이라며 이같이 말했다.
+        
+        그는 오는 8월에는 남·북극 지역을 제외하고 전 세계를 대상으로 시범 서비스를 제공할 준비가 돼 있다고 했다.
+        
+        화상 연설을 한 머스크는 스타링크에 2개의 대형 통신회사 파트너가 있다며 5세대(5G) 이동통신 네트워크와의 속도 차이를 없애는 데 도움이 될 것이라고 설명했다.
+        
+        스타링크는 머스크가 설립한 우주탐사기업 스페이스X의 위성 인터넷 사업이다. 저궤도 소형위성 1만2000개를 쏘아 올려 지구 전역에서 이용할 수 있는 초고속인터넷 서비스를 구축하는 것을 목표로 한다.
+        
+        스페이스X는 지난달 스타링크의 첫 번째 궤도 위성망 구축 작업을 마무리했다. 스페이스X는 '셸'(Shell)로 불리는 5개의 궤도 위성망을 2027년 3월까지 단계적으로 구축하겠다는 계획을 갖고 있다.
+        
+        그윈 숏웰 스페이스X 사장은 지난 22일 매쿼리그룹 온라인 기술포럼에서 "1800개의 스타링크용 위성을 성공적으로 배치했다"며 "기술적으로 오는 9월께 글로벌 서비스를 제공할 수 있다"고 말했다.
+        
+        전문가들은 스타링크의 비즈니스 모델과 관련해 투자금을 회수하기 위해서는 월 99달러의 서비스 비용을 내는 가입자가 수백만 명이 필요하다는 분석도 내놓고 있다. 머스크는 "우리가 파산하지 않고 성공한다면 좋은 일이 될 것이고, 우리는 거기서부터 나아갈 수 있다"고 말했다.
+    </p>
+
+    <script>
+
+        var big = document.getElementById('big');
+        var small = document.getElementById('small');
+        var content = document.getElementById('content');
+
+        big.onclick = function() {
+            // 현재 크기?
+            // alert(window.getComputedStyle(content).fontSize);
+            var fontSize = parseInt(window.getComputedStyle(content).fontSize);
+            fontSize += 2;
+
+            content.style.fontSize = fontSize + 'px';
+        };
+
+        small.onclick = function() {
+
+            var fontSize = parseInt(window.getComputedStyle(content).fontSize);
+            fontSize -= 2;
+
+            content.style.fontSize = fontSize + 'px';
+        };
+
+    </script>
+
+</body>
+</html>
