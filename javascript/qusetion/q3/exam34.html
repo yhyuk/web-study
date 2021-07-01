@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { 
+            background-color: #777; 
+            text-align: center;
+        }
+        #box { 
+            border: 10px solid black; 
+            width: 600px; 
+            height: 600px; 
+            margin: 10px auto; 
+            overflow: hidden; 
+            position: relative; 
+            left: 0px; 
+            top: 0px;
+            background-color: white; 
+        }
+        .item {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://pinnpublic.github.io/example/javascript/exam34.html -->
+    <h1>이미지 + 연속 이동하기 1</h1>
+    <div>마우스의 움직임을 따라 이미지를 연속으로 움직이시오.</div>
+    
+    <div id="box">
+        <img src="../images/m01.png" class="item">
+        <img src="../images/m02.png" class="item">
+        <img src="../images/m03.png" class="item">
+        <img src="../images/m04.png" class="item">
+        <img src="../images/m05.png" class="item">
+        <img src="../images/m06.png" class="item">
+        <img src="../images/m07.png" class="item">
+        <img src="../images/m08.png" class="item">
+        <img src="../images/m09.png" class="item">
+        <img src="../images/m10.png" class="item">
+        <img src="../images/m11.png" class="item">
+        <img src="../images/m12.png" class="item">
+        <img src="../images/m13.png" class="item">
+        <img src="../images/m14.png" class="item">
+        <img src="../images/m15.png" class="item">
+        <img src="../images/m16.png" class="item">
+        <img src="../images/m17.png" class="item">
+        <img src="../images/m18.png" class="item">
+    </div>
+
+    <script>
+        var items = document.getElementsByClassName('item');
+        var box = document.getElementById('box');
+        
+        var pathX = [];
+        var pathY = [];
+
+        // 이미지 zindex 저장
+        for (var i=0; i<items.length; i++) {
+            items[i].style.zindex = (items.length-i);
+        }
+
+        // 이미지 좌표값 pathX, pathY 저장
+        function moveItem() {
+            for (var i=0; i<items.length; i++) {
+                if (pathX[i] != null) {
+                    items[i].style.left = pathX[i] - 64 - box.offsetLeft + "px";
+                    items[i].style.top = pathY[i] - 64 - box.offsetTop + "px";
+                    items[i].style.display = "block";
+                }
+            }
+        }
+
+        // 마우스 이동 시 저장된 좌표값 shift()
+        window.onmousemove = function() {
+            pathX.push(event.clientX);
+            pathY.push(event.clientY);
+
+            if (pathX.length > items.length) {
+                pathX.shift();
+                pathY.shift();
+            }
+
+            moveItem();
+        };
+
+    </script>
+</body>
+</html>

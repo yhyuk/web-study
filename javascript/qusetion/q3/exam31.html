@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, div { text-align: center;}
+        #cat {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            transition-property: all;
+            transition-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://pinnpublic.github.io/example/javascript/exam31.html -->
+    <h1>고양이 움직이기 ver. 등속</h1>
+    <div>고양이를 마우스 클릭한 장소로 이동시키시오.</div>
+    <img src="../images/catty17.png" id="cat">
+
+    <script>
+        var cat = document.getElementById('cat');
+        var oldX = 0;
+        var oldY = 0;
+
+        window.onmousedown = function() {
+            var dis_x = Math.abs(oldX - event.clientX);
+            var dis_y = Math.abs(oldY - event.clientY);
+
+            oldX = event.clientX;
+            oldY = event.clientY;
+
+            //c^2 = a^2 + b^2
+            var duration = Math.sqrt(dis_x * dis_x + dis_y * dis_y);
+            cat.style.transitionDuration = duration / 1000 + 's';
+
+            cat.style.left = event.clientX - 64 + "px";
+            cat.style.top = event.clientY - 64 + "px";
+        };
+    </script>
+
+</body>
+</html>

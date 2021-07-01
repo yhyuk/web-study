@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #bird  {
+            width: 200px;
+            height: 139px;
+            background-image: url("../images/fly.png");
+            transition: transform 3s;
+            margin-left: 400px;
+            margin-top: 200px;
+        }
+        #selspeed {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://pinnpublic.github.io/example/javascript/exam36.html -->
+    <h1>새 날기</h1>
+    <div>새를 날게 하시오.</div>
+
+    
+	새의 속도 : <select id="selspeed">
+        <option value="300">느림</option>
+		<option value="100" selected>보통</option>
+		<option value="60">빠름</option>
+		<option value="10">엄청빠름</option>
+	</select>
+    <div id="bird"></div>
+
+    <script>
+        var bird = document.getElementById('bird');
+        var selspeed = document.getElementById('selspeed');
+        
+        var x = 0;
+        var speed = 100;
+        var timer = 0;
+        
+        // 페이지 열자마자 이미지 이동
+        timer = setInterval(function() {
+            bird.style.backgroundPosition = x + "px 0px";
+            x -= 200;
+        }, speed);
+
+        // 이미지 이동 시 특정 조건에서 페이지 벗어나게 하기
+        selspeed.onchange = function() {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                bird.style.backgroundPosition = x + "px 0px";
+                x -= 200;
+                if (selspeed.value == 10) {
+                    bird.style.transform = "translate(0px, -1000px)";
+                }
+            }, event.srcElement.value);
+        };
+    </script>
+</body>
+</html>

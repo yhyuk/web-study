@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, div { text-align: center;}
+        #btn1 { 
+            margin-top: 20px;
+            margin-left: 500px;
+        }
+        #cat {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://pinnpublic.github.io/example/javascript/exam32.html -->
+    <h1>고양이 움직이기 ver. Path</h1>
+    <div>1. Ctrl을 누른채 마우스를 움직인다.</div>
+    <div>2. Ctrl을 떼고 시작버튼을 누른다.</div>
+
+    <input type="button" value="시작" id="btn1">
+    <img src="../images/catty15.png" id="cat">
+
+    <script>
+        var cat = document.getElementById('cat');
+        var btn1 = document.getElementById('btn1');
+
+        var pathX = [];
+        var pathY = [];
+        var timer = 0;
+
+        // ctrl키를 누르면 배열 pathX, pathY에 event.clientX, clientY push
+        window.onmousemove = function() {
+            if (event.ctrlKey) {
+                pathX.push(event.clientX);
+                pathY.push(event.clientY);
+            }
+        };
+
+        // pathX, pathY에 저장된 값 shift
+        btn1.onclick = function() {
+            timer = setInterval(function() {
+                cat.style.left = pathX[0] - 64 + "px";
+                cat.style.top = pathY[0] - 64 + "px";
+
+                pathX.shift();
+                pathY.shift();
+
+                if (pathX.length == 0) {
+                    clearInterval(timer);
+                }
+            }, 10);
+        };
+
+    </script>
+    
+    
+</body>
+</html>

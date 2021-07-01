@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, div { text-align: center;}
+        #cat {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://pinnpublic.github.io/example/javascript/exam30.html -->
+    <h1>고양이 움직이기</h1>
+    <div>고양이를 마우스 클릭한 장소로 이동시키시오.</div>
+    <img src="../images/catty20.png" id="cat">
+
+    <script>
+        var cat = document.getElementById('cat');
+
+        window.onmousedown = function() {
+            cat.style.left = event.clientX - 64 + "px";
+            cat.style.top = event.clientY - 64 + "px";
+        };
+    </script>
+
+</body>
+</html>

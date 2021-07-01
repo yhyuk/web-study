@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, div { text-align: center;}
+        .cat {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- https://pinnpublic.github.io/example/javascript/exam33.html -->
+    <h1>이미지 + 연속 이동하기 1</h1>
+    <div>마우스의 움직임을 따라 고양이를 연속으로 움직이시오.</div>
+    
+    <img src="../images/catty01.png" class="cat">
+    <img src="../images/catty02.png" class="cat">
+    <img src="../images/catty03.png" class="cat">
+    <img src="../images/catty04.png" class="cat">
+    <img src="../images/catty05.png" class="cat">
+    <img src="../images/catty06.png" class="cat">
+    <img src="../images/catty07.png" class="cat">
+    <img src="../images/catty09.png" class="cat">
+    <img src="../images/catty10.png" class="cat">
+    <img src="../images/catty11.png" class="cat">
+    <img src="../images/catty12.png" class="cat">
+    <img src="../images/catty13.png" class="cat">
+    <img src="../images/catty14.png" class="cat">
+    <img src="../images/catty15.png" class="cat">
+    <img src="../images/catty16.png" class="cat">
+    <img src="../images/catty17.png" class="cat">
+    <img src="../images/catty18.png" class="cat">
+    <img src="../images/catty19.png" class="cat">
+    <img src="../images/catty20.png" class="cat">
+    <img src="../images/catty21.png" class="cat">
+    <img src="../images/catty08.png" class="cat">
+
+    <script>
+        var cats = document.getElementsByClassName('cat');
+        var pathX = [];
+        var pathY = [];
+
+        // 이미지 zindex 저장
+        for (var i=0; i<cats.length; i++) {
+            cats[i].style.zindex = (cats.length-i);
+        }
+
+        // 이미지 이동하기 좌표 저장
+        function moveCat() {
+            for (var i=0; i<cats.length; i++) {
+                if (pathX[i] != null) {
+                    cats[i].style.left = pathX[i] - 64 + "px";
+                    cats[i].style.top = pathY[i] - 64 + "px";
+                    cats[i].style.display = "block";
+                }
+            }
+        }
+
+        // 마우스를 이동할때마다 좌표에 저장된 값 shift();
+        window.onmousemove = function() {
+            pathX.push(event.clientX);
+            pathY.push(event.clientY);
+            
+            if (pathX.length > cats.length) {
+                pathX.shift();
+                pathY.shift();
+            }
+            
+            moveCat();
+        };
+    </script>
+</body>
+</html>
