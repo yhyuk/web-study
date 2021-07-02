@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex56_regex.html -->
+
+    <h1>JavaScript + 정규 표현식</h1>
+
+    <textarea id="txt" cols="80" rows="10">
+        코로나19 바이러스가 섬모세포의 공기 접촉면에 결합해 세포 내로 침투한 뒤 증식한다는 뜻입니다.
+
+        이로써 코로나19 확산 1년 반이 넘도록 모호했던 코로나19 바이러스의 인체 감염 경로가 국내 연구진에 의해 처음으로 명확하게 밝혀졌습니다.
+
+        또한 집단 면역이 완성될 때까지는 코와 입을 완전히 가리는 마스크를 계속 사용해야 하며, 코 속 점막에 010-3156-1234백신을 투여해 면역력을 형성하는 예방 및 치료 전략이 필요하다는 지적이 나옵니다.
+
+        연구팀 관계자는 “코로나바이러스의 표적인 비강 섬모세포가 손상되면 폐를 비롯한 다른 장기도 빠르게 감염될 수 있다”며 “비강 섬모세포 보호를 위한 후속 연구 및 백신·약물 개발이 필요하다"고 말했습니다.
+
+        고규영 단장은 "경증 환자는 코로나19 바이러스 증식이 8일 안에 끝났으며, 010-3146-2841손상된 섬모세포가 빠르게 재생되는 모습을 보였다"며 "이는 비강 점막 면역이 코로나19 치료의 핵심이라는 뜻"이라고 전했습니다.
+
+        이어 "비강 내 백신을 투여해 점막 면역을 형성하는 것이 새로운 코로나19 예방·치료 전략이 될 것"이라고 제안하기도 했습니다.
+
+        이번 연구 결과는 오늘 국제 의학연구학술지인 임상연구저널(Journal of Clinical Investigation, IF 14.808)에 표지 논문으로 실렸습니다.
+    </textarea>
+
+    <input type="button" value="버튼" id="btn1">
+
+    <h1>입력</h1>
+
+    <form method="GET" action="ex57.jsp">
+        <div>이름: <input type="text" name="name" pattern="[가-힣]{2,5}" required> 필수 + 한글(2~5자)</div>
+        <div>나이: <input type="text" name="age" pattern="[0-9]{1,2}" required> 필수 + 숫자</div>
+        <div>나이: <input type="number" name="age"> 필수 + 숫자</div>
+        <div><input type="submit" value="등록하기"></div>
+    </form>
+
+    <script>
+        var txt = document.getElementById('txt')
+        var btn1 = document.getElementById('btn1');
+
+        btn1.onclick = function () {
+            
+            /*
+                정규 표현식
+                1. 생성자 함수 사용
+                2. 리터럴 표기법 사용
+
+                정규 표현식 객체 메소드
+                1. boolean test()
+                2. array exec()
+                3. array match()
+                4. string replace()
+                5. array split()
+            */
+
+            // g(global): 전역 탐색(N회 검색ㄴ)
+            var regex = new RegExp('[0-9]{3}-[0-9]{3,4}-[0-9]{4}', 'g');
+
+            // var regex = /[0-9]{3}-[0-9]{3,4}-[0-9]{4}/g;
+
+            console.log(regex.test(txt.value));
+
+            // console.log(regex.exec(txt.value));
+            var result = txt.value.match(regex);
+            console.log(result);
+
+            result.forEach ( function (item) {
+                console.log(item);
+            });
+
+            // =========================================================
+            var str = '홍길동님 안녕하세요. 반갑니다. 홍길동님';
+            console.log(str.replace('홍길동', '아무개'));
+            console.log(str.replace(/홍길동/g, '아무개'));
+
+            var str = 'Hello Java~ Hi java';
+
+            console.log(str.replace(/Java/g, '자바'));
+
+            //g(global), i(insensitive)
+            console.log(str.replace(/java/gi, '자바'));
+            console.log(str.replace(/java/ig, '자바'));
+
+            // var str = '홍길동,아무개,하하하,호호호,후후후'
+            // var str = '홍길동,아무개;하하하,호호호,후후후';
+            var str = '홍길동, 아무개,하하하  ,호호호,후후후'
+
+            console.log(str.split(','));
+            console.log(str.split(/[,;]/));
+            console.log(str.split(/\s?,\s?/));
+            console.log(str.split(/\s*,\s*/));
+
+
+
+        };
+    </script>
+</body>
+</html>
