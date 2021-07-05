@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <!-- ex05_manipulation.html -->
+
+    <h1>jQuery + HTML 조작</h1>
+    <h3>1. 컨텐츠 조작</h3>
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div id="list">
+        <div id="box1" class="box">상자1</div>
+        <div id="box2" class="box">상자2</div>
+        <div id="box3" class="box">상자3</div>
+    </div>
+
+    <hr>
+    <input type="text" id="txt1">
+
+    <hr>
+    <h3>2. 속성 조작</h3>
+    <a href="http://google.com" id="link1">구글</a>
+    <h3>3. CSS 조작</h3>
+    <h3>고양이</h3>
+    <div id="cat">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty02.png" alt="">
+        <img src="images/catty03.png" alt="">
+        <img src="images/catty04.png" alt="">
+        <img src="images/catty05.png" alt="">
+    </div>
+
+    <script>
+
+        // 1. 전용 함수
+        // $('#btn1').click();
+        // $('#btn1').click(함수); // 쓰기 -> 이벤트추가
+
+        // 2. 범용 함수
+        // $('#btn1').on(이벤트명, 함수); // 쓰기 -> 이벤트 추가
+
+
+        $('#btn1').click(function() {
+
+            /*
+                HTML 조작
+                1. 컨텐츠 조작
+                    - innerText(textContent)
+                    - innerHTML > html()
+                    - append(), prepend()
+                    - ... 나머지는 메소드는 API Document 보면서 공부
+                2. 속성 조작
+                    - attr()
+                3. CSS 조작
+                    - css()
+            */
+
+            // 컨텐츠 조작 ===============================
+            // $('#box1').text('<b>안녕하세요.</b>');
+            // $('#box2').html('<b>반갑습니다.</b>');
+            // $('#box3').html('<input type="text">');
+
+
+            // [ 인자값이 없으면 읽기, 있으면 쓰기 ]
+            // $('#box3').html() : 읽기
+            // $('#box3').html(text) : 쓰기
+
+            // document.getElementById('box3').innerHTML += '<input type="text">';
+            // $('#box3').html($('#box3').html() + '<input type="text">');
+
+            // alert($('#box3').html());
+            // alert(document.getElementById('box3').innerHTML);
+
+            // $('#box3').html('');
+            // $('#box3').append('<input type="text">');
+            // $('#box3').prepend('<input type="text">');
+
+
+            // ========================================
+            // alert($('#txt1').val());
+            // $('#txt1').val('홍길동');
+
+            /*
+                jQuery 메소드의 패턴
+                1. 전용 함수
+                    a. object.test()        : getter, 읽기
+                    b. object.test(param)   : setter, 쓰기
+
+                2. 범용 함수
+                    - 메소드명을 보면 무슨 행동인지 유추가 모호하다.
+                    a. obj.test(param)          : getter, 읽기
+                    b. obj.test(param, param)   : setter, 쓰기
+            */
+
+            // 1. 전용함수
+            // alert($('#box3').text()); // a
+            // $('#box3').text('ABC'); // b
+
+            // 2. 범용 함수
+            // alert($('#box3').css('color')); // a
+            // $('#box3').css('color', 'blue'); // b
+
+
+            // 속성 조작 ===========================================
+            // alert($('#link1').attr('href')); // 읽기
+            
+            // 방법1 
+            // $('#link1').attr('href', 'http://naver.com'); // 쓰기
+            // $('#link1').attr('title', '네이버');
+            // $('#link1').attr('target', '_blank');
+
+            // 위 코드를 아래 처럼 만들 수 있다. ( 더 좋은 코드 )
+            // 방법2
+            // $('#link1').attr('href', 'http://naver.com')
+            //            .attr('title', '네이버')
+            //            .attr('target', '_blank');
+
+            // 방법3
+            // $('#link1').attr({
+            //     href: 'http://naver.com',
+            //     title: '네이버',
+            //     target: '_blank'
+            // });
+
+            // CSS 조작 ===============================================
+            // alert($('#box1').css('width'));
+            $('#box1').css('width', '100px');
+            $('#box1').css('height', '100px');
+            $('#box1').css('background-color', 'gold');
+
+            $('#box2').css('width', '100px')
+                      .css('height', '100px')
+                      .css('border', '10px solid black');
+            
+            $('#box3').css({
+                width: 100,
+                height: '100px',
+                outline: '5px solid blue'
+            });
+
+            // 고양이 추가하기(append) ===============================
+            // $('#cat').append('<img src="images/catty11.png">');
+
+            // 문자열을 가지고 진짜 태그를 만들어서 jQuery 객체로 반환한다.
+            $('#cat').append($('<img>').attr('src', 'images/catty12.png')
+                      .css('opacity', '.5')
+                      .mouseover(function() {
+                        $(this).css('opacity', '1');
+                      }));
+
+        }); // btn1.click
+
+        // CSS 조작 ===========================================
+        // 고양이
+        $('#cat > img').click(function() {
+
+            // alert(this.src);
+            // alert(this.constructor); // HTMLimage
+
+            // jQuery에 걸린 이벤트 함수 내에서 this
+            // -> jQuery 객체 X
+            // -> DOM 객체 O
+
+            // this.css('opacity', '.5'); // 적용X
+            this.style.opacity = .5; // DOM 객체로 적용됨
+
+            // DOM 객체를 jQuery 객체로 변환하기
+            // - DOM 객체 태그를 래핑
+            // $(this).css('opacity', '.3');
+            $(this).css({
+                opacity: .3,
+                transform: 'scale(.5, .5) rotate(45deg)'
+            });
+
+            // document.body -> $() -> jQuery 객체
+
+            // document.body.style.backgroundColor = 'gold';
+            // $(document.body).css('background-color', 'blue');
+
+        });
+
+    </script>
+</body>
+</html>
