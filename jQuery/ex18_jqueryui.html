@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+
+        #a1 {
+            width: 300px;
+        }
+
+        #slider {
+            font-size: 10px;
+            margin: 15px;
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex17_jqueryui.html -->
+
+    <h1>jQuery UI > Widgets</h1>
+
+    <h2>Accordion</h2>
+
+    <div id="a1">
+        <h3>HTML</h3>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est cumque eos odio eius numquam. Numquam rerum, eum deserunt harum similique dolor suscipit voluptas facere reiciendis officiis laboriosam officia unde odit!</div>
+        <h3>CSS</h3>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis atque odit dolor officia, odio harum, repellat commodi quas itaque corporis. Ipsum culpa maiores dolore nihil voluptatum, delectus deserunt corrupti.</div>
+        <h3>JavaScript</h3>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, corporis enim. Rerum minus, illum quod a, minima enim porro illo quam vel voluptatem nihil magnam inventore? Voluptates velit debitis similique?</div>
+    </div>
+
+    <h2>Buttons</h2>
+
+    <input type="button" value="확인" class="btn">
+    <input type="button" value="취소" class="btn">
+
+    <div id="btns">
+        <input type="button" value="확인">
+        <input type="button" value="취소">
+    </div>
+
+    <h2>CheckBox & Radio</h2>
+
+    <div id="c1">
+        <label>클래스 <input type="checkbox" class="cb"></label>
+        <label>메소드 <input type="checkbox" class="cb"></label>
+        <label>인터페이스 <input type="checkbox" class="cb"></label>
+    </div>
+
+    <div id="c2">
+        <label>클래스 <input type="radio" class="rb" name="rb"></label>
+        <label>메소드 <input type="radio" class="rb" name="rb"></label>
+        <label>인터페이스 <input type="radio" class="rb" name="rb"></label>
+    </div>
+
+    <h2>Dialog</h2>
+    <input type="button" value="확인" id="btn1">
+    <div id="dialog1">
+        안녕하세요.
+    </div>
+
+    <h2>DatePicker</h2>
+
+    <input type="date">
+    <input type="text" id="date1">
+
+    <h2>Slider</h2>
+    <input type="range">
+
+    <div id="slider1"></div>
+    <div id="slider1" title="슬라이더를 움직이세요."></div>
+    <img src="images/catty12.png" id="cat" title="뱅글 뱅글 고양이">
+
+    <script>
+
+        // Bootstrap vs jQuery UI
+        // - Bootstrap > 대부분 CSS만 가지고 작업 + JS (일부)작업
+        // - jQuery UI > 대부분 JavaScript를 가지고 작업
+
+        // Accordion ==============================================
+        // accordion: 좁은공간에서 많은 내용을 확인할 수 있다.
+        // $('#a1').accordion();
+        $('#a1').accordion({
+            collapsible: true
+        });
+
+        // Buttons ================================================
+        // button: 여러개의 그룹으로 나눠서 버튼 생성
+        $('.btn').button();
+
+        // controlgroup: 하나의 그룹으로 묶어서 버튼 생성
+        $('#btns').controlgroup();
+
+        // Checkbox & Radio ========================================
+        $('.cb, .rb').checkboxradio();
+        $('#c1, #c2').controlgroup();
+
+        // Dialog ==================================================
+        $('#dialog1').hide();
+
+        /*
+            대화 상자의 형태
+            1. modal
+                - 자식창이 보이면 부모창이 포커스를 가질 수 없는 상태
+                - 자식의 업무가 끝나야지만 부모의 업무로 들어갈 수 있는 상태(*****)
+                - 부모 -> 자식 -> 부모: 순서가 없는 경우
+                - 잘모르겠으면 이거 쓰셈, 무난하다.
+
+            2. modeless
+                - 자식창이 보여도 부모창이 포커스를 가질 수 있는 상태
+                - 자식의 업무와 부모의 업무를 병향할 수 있는 상태(**)
+                - 순서가 없는 경우
+        */
+
+        $('#btn1').click(function() {
+            $('#dialog1').dialog({
+                title: '제목입니다.',
+                width: 300,
+                height: 250,
+                draggable: false,
+                resizable: false,
+                modal: false,
+                buttons: {
+                    // 'text1': function() { alert(); },
+                    // 'text2': function() { alert(); },
+                    // 'text3': function() { alert(); }
+
+                    '확인': function() {
+                        alert('업무 진행~');
+                    },
+                    '취소' : function() {
+                        $()
+                    }
+                }
+            });
+        });
+
+        // DatePicker ===========================================
+        $('#date1').datepicker({
+            dateFormat: 'yy-mm-dd',
+            // minDate: '2021-07-03',
+            // maxDate: '2021-07-15'
+            // minDate: '-3',
+            // maxDate: '+3'
+            minDate: '-1M -5D',
+            maxDate: '+1M +5D'
+        });
+
+        // Slider ==================================================
+        $('#slider1').slider({
+            min: 0,
+            max: 360,
+            slide: function(event, ui) {
+                // console.log(ui.value);
+                $('#cat').css('transform', `rotate(${ui.value}deg)`);
+            }
+        });
+
+        $('#slider1, #cat').tooltip({
+            show: {
+                effect: 'slideDown'
+            },
+            hide: {
+                effect: 'slideUp'
+            },
+            track: true
+        });
+
+    </script>
+</body>
+</html>

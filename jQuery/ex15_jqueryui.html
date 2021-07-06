@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+
+        .box {  
+            width: 300px;
+            height: 300px;
+            background-color: gold;
+        }
+
+        .helper {
+            border: 1px dashed black;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex15_jqueryui.html -->
+    <div class="box"></div>
+    <img src="images/cat05.jpg" class="cat">
+
+    <script>
+
+        // resizable: 요소의 크기를 마음대로 조절할 수 있다. (오른쪽 하단 빗금 생김) 
+        // $('.box').resizable();
+
+        
+        $('.box').resizable({
+            animate: true,
+            helper: 'helper', // helper는 클래스임, style에서 직접 옵션을 줘야함
+            maxWidth: 500,
+            minWidth: 200,
+            maxHeight: 500,
+            minHeight: 200,
+            grid: [100, 100]
+        });
+
+    </script>
+</body>
+</html>

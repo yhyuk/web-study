@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style>
+        .box { 
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+        .cat {
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex13_jqueryui.html -->
+    <h1>jQuery UI > Intercations > Draggable</h1>
+
+    <img src="images/catty18.png" class="cat">
+
+    <div class="box"><img src="images/catty14.png" class="cat"></div>
+
+    <script>
+
+        // draggable: 드래그로 요소를 움직일 수 있다.
+        // $('.box, .cat').draggable(); 
+
+        // axis: 'x' 가로로만 요소를 움직일 수 있다.
+        // axis: 'y' 세로로만 요소를 움직일 수 있다.
+        // $('.box').draggable({
+        //     axis: 'x'
+        // }); 
+        // $('.cat').draggable({
+        //     axis: 'y'
+        // }); 
+        
+        // grid: value 값으로만 움직 일 수 있다.
+        // $('.box').draggable({
+        //     grid: [200, 200]
+        // });
+        
+        // snap: 지정한 요소에 자석처럼 달라 붙는다.
+        // $('.cat').draggable({
+        //     snap: '.box'
+        // });
+        
+        // containment: 지정한 옵션에 요소의 움직임을 제한할 수 있다.
+        $('.box > img').draggable({
+            containment: 'parent'
+        });
+
+    </script>
+</body>
+</html>
